@@ -17,8 +17,8 @@ PetNaLeste é um projeto social que tem como objetivo ajudar tutores da Zona Les
 ![](src/public/img/.png)
 
 ## Autores
-Carlos Antonio
-Gabriel Lima
-Lucas Henrique
+Carlos Antonio,
+Gabriel Lima,
+Lucas Henrique,
 Nathan Freire
 
