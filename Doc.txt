@@ -1,0 +1,11 @@
+09/06/2025
+No primeiro dia decidimos iniciar o projeto pelo banco de dados,
+onde fizemos a modelagem do banco, criando (Usuario, Animal,
+Contato, Endereco e Redes Sociais) no exel, logo após, vinculamos
+o banco de dados com o servidor criado no fedora, jogamos os
+dados do exel para o workbench e as tabelas foram criadas.
+
+amanhã criar algo em cada tabela, e vincular ao back-and,
+testando pelo thunder.
+
+10/06/2025
