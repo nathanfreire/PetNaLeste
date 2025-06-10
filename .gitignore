@@ -1,2 +1,5 @@
 *node_modules
 .gitignore
+package-lock.json
+package.json
+Doc.txt
