@@ -2,6 +2,7 @@ import { resolve } from "path";
 import Animal from "../classes/Animal";
 import { conexao } from "../database/Config";
 import Commands from "../interfaces/Commands";
+import { error } from "console";
 
 
 export default class AnimalRepository implements Commands<Animal>{
@@ -21,11 +22,38 @@ export default class AnimalRepository implements Commands<Animal>{
                 else{
                     id_end = end.insertID
                 }
-        conexao.query("INSERT INTO usuario (nome_usuario,senha,foto_usuario,id_contato,id_endereco,id_redes) Values (?")
+        conexao.query("INSERT INTO animal (id_usuario,tipo_animal,raca,cor,porte,sexo,data_encontrado,data_perdido,id_endereco,foto_animal,status,descricao) Values (?,?,?,?,?,?,?,?,?,?,?,?)",
+            [obj.usuario,
+            obj.tipo_animal,
+            obj.raca,
+            obj.cor,
+            obj.porte,
+            obj.sexo,
+            obj.data_encontrado,
+            obj.data_perdido,
+            id_end,
+            obj.foto,
+            obj.status,
+            obj.descricao
+            ],(error,result)=>{
+                if (error) {
+                    return reject (error)
+                } else {
+                    return resolve(obj)
+                }
+            })
             })})
     }
     Listar(): Promise<Animal[]> {
-        throw new Error("Method not implemented.");
+       return new Promise((resolve,reject)=>{
+        conexao.query("Select * from animal",(erro,result)=>{
+            if (erro) {
+                return reject(erro)
+            } else{
+                return resolve(result as Animal[])
+            }
+        })
+       })
     }
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");

@@ -27,4 +27,13 @@ export default class AnimalService{
                 return res.status(500).json(error)
             }
     }
+    async listarAnimal (req:Request, res:Response){
+        try {
+            const rs = await this.aniRepository.Listar
+            return res.status(200).json(rs)
+
+        } catch (error) {
+            return res.status(500).json(error)
+        }
+    }
 }
