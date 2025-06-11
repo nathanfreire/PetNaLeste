@@ -5,6 +5,20 @@ O PetNaLeste promove a conscientização sobre a importância da identificação
 
 ---
 
+## Objetivo do Projeto:
+
+-
+-
+
+---
+
+## Público Alvo:
+
+-
+-
+
+---
+
 ## 🚀 Tecnologias Utilizadas:
 (Norma SOLID)
 - HTML 5
