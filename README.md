@@ -31,6 +31,30 @@ O PetNaLeste promove a conscientização sobre a importância da identificação
 
 ---
 
+## Configuração:
+
+1. Instale as dependências com:
+
+   ```bash 
+
+npm install
+
+---
+
+## Banco de Dados PetNaLeste
+
+### Tabela Usuario:
+
+CREATE TABLE `usuario` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
+  `Experiencia` text DEFAULT NULL,
+  `Senha_usuario` varchar(100) NOT NULL,
+  `Email_usuario` varchar(100) NOT NULL
+);
+
+---
+
 ### "Diagrama do Banco de dados"
 ![](Front-and/img/Diagrama-Banco.png)
 ### ""
