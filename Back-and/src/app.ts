@@ -25,6 +25,6 @@ app.post("/api/v1/animal/cadastro", (req,res)=>{
     ani.cadastrarAnimal(req,res)
 })
 //#############################
-app.listen(5000, ()=>{
-    console.log(`Online na porta 5000`)
-})
+app.listen(5000, '0.0.0.0', () => {
+    console.log('Online na porta 5000 (acesse de qualquer IP)');
+});
