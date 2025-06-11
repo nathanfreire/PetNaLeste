@@ -9,4 +9,9 @@ amanhã criar algo em cada tabela, e vincular ao back-and,
 testando pelo thunder.
 
 10/06/2025
-teste
+Revemos alguns conceitos do banco de dados e trocamos algumas configurações do Endereco, após isso começamos as configurações do back-end, onde criamos as pastas, classes, database, interfaces, repositories, services.
+começamos a codificação para conectar o banco de dados com o back-end testado pelo thander.
+
+11/06/2025
+Continuamos fazendo a conexão do banco de dados com o back-end.
+tambem começamos a fazer o front-end.
