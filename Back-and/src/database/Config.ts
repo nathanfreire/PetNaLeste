@@ -7,4 +7,11 @@ export const conexao = mysql.createConnection({
     password:"123456",
     database:"PetNaLeste"
 }); 
-
+conexao.connect((err) => {
+    if (err) {
+      console.error('Erro ao conectar no banco:', err);
+      return;
+    }
+    console.log('Conectado ao banco MySQL!');
+  });
+  
