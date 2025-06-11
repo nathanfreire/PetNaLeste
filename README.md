@@ -5,6 +5,18 @@ O PetNaLeste promove a conscientização sobre a importância da identificação
 
 ---
 
+## 🚀 Tecnologias Utilizadas:
+(Norma SOLID)
+- HTML 5
+- CSS 3
+- JavaScript
+- Bootstrap
+- TypeScript
+- Node.js
+- MySQL
+
+---
+
 ### ""
 ![](src/public/img/.png)
 ### ""
