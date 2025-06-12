@@ -35,9 +35,25 @@ O PetNaLeste promove a conscientização sobre a importância da identificação
 
 1. Instale as dependências com:
 
-   ```bash 
-
+```bash 
 npm install
+```
+
+2. Configure as variáveis de ambiente no arquivo .env, como:
+
+```bash 
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=sua_senha
+DB_NAME=dbpethouse
+JWT_SECRET=sua_chave_secreta
+```
+
+3. Inicie o servidor com:
+
+```bash 
+node index.js
+```
 
 ---
 
@@ -45,6 +61,7 @@ npm install
 
 ### Tabela Usuario:
 
+```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
   `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
@@ -52,6 +69,55 @@ CREATE TABLE `usuario` (
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
 );
+```
+
+### Tabela Animal:
+
+```bash 
+CREATE TABLE `usuario` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
+  `Experiencia` text DEFAULT NULL,
+  `Senha_usuario` varchar(100) NOT NULL,
+  `Email_usuario` varchar(100) NOT NULL
+);
+```
+
+### Tabela Contato:
+
+```bash 
+CREATE TABLE `usuario` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
+  `Experiencia` text DEFAULT NULL,
+  `Senha_usuario` varchar(100) NOT NULL,
+  `Email_usuario` varchar(100) NOT NULL
+);
+```
+
+### Tabela Endereço:
+
+```bash 
+CREATE TABLE `usuario` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
+  `Experiencia` text DEFAULT NULL,
+  `Senha_usuario` varchar(100) NOT NULL,
+  `Email_usuario` varchar(100) NOT NULL
+);
+```
+
+### Tabela Redes Sociais:
+
+```bash 
+CREATE TABLE `usuario` (
+  `ID_Usuario` int(11) NOT NULL,
+  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
+  `Experiencia` text DEFAULT NULL,
+  `Senha_usuario` varchar(100) NOT NULL,
+  `Email_usuario` varchar(100) NOT NULL
+);
+```
 
 ---
 
