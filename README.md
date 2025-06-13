@@ -119,6 +119,45 @@ CREATE TABLE `usuario` (
 );
 ```
 
+## CHAVES PRIMÁRIAS E ÍNDICES
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
+
+## CHAVES ESTRANGEIRAS
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
+
+```bash
+```
+
+---
+
+## Seções 
+
+- Home
+- Encontre seu Pet
+- Como Funciona
+- Login/Cadastrar-se
+- Revise e confirme sua reserva
+- Contato
+
 ---
 
 ### "Diagrama do Banco de dados"
@@ -141,4 +180,12 @@ Carlos Antonio,
 Gabriel Lima,
 Lucas Henrique,
 Nathan Freire
+
+---
+
+## Status do Projeto
+
+- Em Desenvolvimento
+
+  ---
 
