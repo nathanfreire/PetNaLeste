@@ -173,7 +173,7 @@ CREATE TABLE `usuario` (
 ### ""
 ![](src/public/img/.png)
 
-GitHub License
+![GitHub License](https://img.shields.io/github/license/nathanfreire/PetNaLeste)
 
 ## Autores
 Carlos Antonio,
