@@ -66,10 +66,10 @@ CREATE TABLE `Usuario` (
     `id_usuario` INT(11) NOT NULL,
     `nome_usuario` VARCHAR(50) NOT NULL,
     `senha` VARCHAR(30) NOT NULL,
-    `foto_usuario` VARCHAR(500),
+    `foto_usuario` VARCHAR(500) DEFAULT NULL,
     `id_contato` INT NOT NULL,
     `id_endereco` INT NOT NULL,
-    `id_redes` INT
+    `id_redes` INT DEFAULT NULL
 );
 ```
 
@@ -81,15 +81,15 @@ CREATE TABLE `Animal` (
     `id_usuario` INT NOT NULL,
     `id_endereco` INT NOT NULL,
     `tipo_animal` VARCHAR(50) NOT NULL,
-    `raca` VARCHAR(30),
-    `cor` VARCHAR(20),
-    `porte` VARCHAR(20),
-    `sexo` VARCHAR(20),
+    `raca` VARCHAR(30) DEFAULT NULL,
+    `cor` VARCHAR(20) DEFAULT NULL,
+    `porte` VARCHAR(20) DEFAULT NULL,
+    `sexo` VARCHAR(20) DEFAULT NULL,
     `data_encontrado` DATE NOT NULL,
     `data_perdido` DATE,
-    `foto_animal` VARCHAR(500),
+    `foto_animal` VARCHAR(500) DEFAULT NULL,
     `status` VARCHAR(70) NOT NULL,
-    `descricao` VARCHAR(500)
+    `descricao` VARCHAR(500) DEFAULT NULL
 );
 ```
 
@@ -99,9 +99,9 @@ CREATE TABLE `Animal` (
 CREATE TABLE `Contato` (
     `id_contato` INT(11) NOT NULL,
     `id_redes` INT NOT NULL,
-    `telefone_residencial` VARCHAR(15),
-    `telefone_celular` VARCHAR(15),
-    `email` VARCHAR(100)
+    `telefone_residencial` VARCHAR(15) DEFAULT NULL,
+    `telefone_celular` VARCHAR(15) DEFAULT NULL,
+    `email` VARCHAR(100) DEFAULT NULL
 );
 ```
 
@@ -113,7 +113,7 @@ CREATE TABLE `Endereco` (
     `tipo_logradouro` ENUM('RUA','AVENIDA','ALAMEDA','TRAVESSA','VIELA','ESTRADA','RODOVIA') NOT NULL,
     `logradouro` VARCHAR(50) NOT NULL,
     `numero` VARCHAR(5) NOT NULL,
-    `complemento` VARCHAR(255),
+    `complemento` VARCHAR(255) DEFAULT NULL,
     `cep` VARCHAR(10) NOT NULL,
     `bairro` VARCHAR(30) NOT NULL
 );
