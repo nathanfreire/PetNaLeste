@@ -41,7 +41,7 @@ npm install
 
 2. Configure as variáveis de ambiente no arquivo .env, como:
 
-```bash 
+```sql
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=sua_senha
@@ -61,9 +61,9 @@ node index.js
 
 ### Tabela Usuario:
 
-```bash 
+```sql
 CREATE TABLE `Usuario` (
-    `id_usuario` INT PRIMARY KEY AUTO_INCREMENT,
+    `id_usuario` **INT PRIMARY KEY AUTO_INCREMENT,
     `nome_usuario` VARCHAR(50) NOT NULL,
     `senha` VARCHAR(30) NOT NULL,
     `foto_usuario` VARCHAR(500),
@@ -78,7 +78,7 @@ CREATE TABLE `Usuario` (
 
 ### Tabela Animal:
 
-```bash 
+```sql
 CREATE TABLE `Animal` (
     `id_animal` INT PRIMARY KEY AUTO_INCREMENT,
     `id_usuario` INT NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE `Animal` (
 
 ### Tabela Contato:
 
-```bash 
+```sql
 CREATE TABLE `Contato` (
     `id_contato` INT PRIMARY KEY AUTO_INCREMENT,
     `id_redes` INT NOT NULL,
@@ -112,7 +112,7 @@ CREATE TABLE `Contato` (
 
 ### Tabela Endereço:
 
-```bash 
+```sql
 CREATE TABLE `Endereco` (
     `id_endereco` INT PRIMARY KEY AUTO_INCREMENT,
     `tipo_logradouro` ENUM('RUA','AVENIDA','ALAMEDA','TRAVESSA','VIELA','ESTRADA','RODOVIA') NOT NULL,
@@ -126,7 +126,7 @@ CREATE TABLE `Endereco` (
 
 ### Tabela Redes Sociais:
 
-```bash 
+```sql 
 CREATE TABLE `RedeSociais` (
     `id_redes` INT PRIMARY KEY AUTO_INCREMENT,
     `tipo_redes` VARCHAR(30) NOT NULL,
