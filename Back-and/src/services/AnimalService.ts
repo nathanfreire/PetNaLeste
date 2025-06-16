@@ -29,7 +29,7 @@ export default class AnimalService{
     }
     async listarAnimal (req:Request, res:Response){
         try {
-            const rs = await this.aniRepository.Listar
+            const rs = await this.aniRepository.Listar()
             return res.status(200).json(rs)
 
         } catch (error) {

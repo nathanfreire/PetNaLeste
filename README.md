@@ -41,7 +41,11 @@ npm install
 
 2. Configure as variáveis de ambiente no arquivo .env, como:
 
+<<<<<<< HEAD
 ```bash 
+=======
+```sql
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=sua_senha
@@ -61,6 +65,7 @@ node index.js
 
 ### Tabela Usuario:
 
+<<<<<<< HEAD
 ```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
@@ -68,11 +73,26 @@ CREATE TABLE `usuario` (
   `Experiencia` text DEFAULT NULL,
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
+=======
+```sql
+CREATE TABLE `Usuario` (
+    `id_usuario` **INT PRIMARY KEY AUTO_INCREMENT,
+    `nome_usuario` VARCHAR(50) NOT NULL,
+    `senha` VARCHAR(30) NOT NULL,
+    `foto_usuario` VARCHAR(500),
+    `id_contato` INT NOT NULL,
+    `id_endereco` INT NOT NULL,
+    `id_redes` INT,
+    FOREIGN KEY (id_contato) REFERENCES Contato(id_contato),
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco),
+    FOREIGN KEY (id_redes) REFERENCES RedeSociais(id_redes)
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Animal:
 
+<<<<<<< HEAD
 ```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
@@ -80,11 +100,31 @@ CREATE TABLE `usuario` (
   `Experiencia` text DEFAULT NULL,
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
+=======
+```sql
+CREATE TABLE `Animal` (
+    `id_animal` INT PRIMARY KEY AUTO_INCREMENT,
+    `id_usuario` INT NOT NULL,
+    `id_endereco` INT NOT NULL,
+    `tipo_animal` VARCHAR(50) NOT NULL,
+    `raca` VARCHAR(30),
+    `cor` VARCHAR(20),
+    `porte` VARCHAR(20),
+    `sexo` VARCHAR(20),
+    `data_encontrado` DATE NOT NULL,
+    `data_perdido` DATE,
+    `foto_animal` VARCHAR(500),
+    `status` VARCHAR(70) NOT NULL,
+    `descricao` VARCHAR(500),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
+    FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco)
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Contato:
 
+<<<<<<< HEAD
 ```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
@@ -92,11 +132,21 @@ CREATE TABLE `usuario` (
   `Experiencia` text DEFAULT NULL,
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
+=======
+```sql
+CREATE TABLE `Contato` (
+    `id_contato` INT PRIMARY KEY AUTO_INCREMENT,
+    `id_redes` INT NOT NULL,
+    `telefone_residencial` VARCHAR(15),
+    `telefone_celular` VARCHAR(15),
+    `email` VARCHAR(100)
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Endereço:
 
+<<<<<<< HEAD
 ```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
@@ -104,11 +154,23 @@ CREATE TABLE `usuario` (
   `Experiencia` text DEFAULT NULL,
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
+=======
+```sql
+CREATE TABLE `Endereco` (
+    `id_endereco` INT PRIMARY KEY AUTO_INCREMENT,
+    `tipo_logradouro` ENUM('RUA','AVENIDA','ALAMEDA','TRAVESSA','VIELA','ESTRADA','RODOVIA') NOT NULL,
+    `logradouro` VARCHAR(50) NOT NULL,
+    `numero` VARCHAR(5) NOT NULL,
+    `complemento` VARCHAR(255),
+    `cep` VARCHAR(10) NOT NULL,
+    `bairro` VARCHAR(30) NOT NULL
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Redes Sociais:
 
+<<<<<<< HEAD
 ```bash 
 CREATE TABLE `usuario` (
   `ID_Usuario` int(11) NOT NULL,
@@ -116,6 +178,13 @@ CREATE TABLE `usuario` (
   `Experiencia` text DEFAULT NULL,
   `Senha_usuario` varchar(100) NOT NULL,
   `Email_usuario` varchar(100) NOT NULL
+=======
+```sql 
+CREATE TABLE `RedeSociais` (
+    `id_redes` INT PRIMARY KEY AUTO_INCREMENT,
+    `tipo_redes` VARCHAR(30) NOT NULL,
+    `identificador` VARCHAR(100) NOT NULL
+>>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
