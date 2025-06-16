@@ -41,11 +41,7 @@ npm install
 
 2. Configure as variáveis de ambiente no arquivo .env, como:
 
-<<<<<<< HEAD
-```bash 
-=======
 ```sql
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=sua_senha
@@ -65,15 +61,6 @@ node index.js
 
 ### Tabela Usuario:
 
-<<<<<<< HEAD
-```bash 
-CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
-  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
-  `Experiencia` text DEFAULT NULL,
-  `Senha_usuario` varchar(100) NOT NULL,
-  `Email_usuario` varchar(100) NOT NULL
-=======
 ```sql
 CREATE TABLE `Usuario` (
     `id_usuario` **INT PRIMARY KEY AUTO_INCREMENT,
@@ -86,21 +73,11 @@ CREATE TABLE `Usuario` (
     FOREIGN KEY (id_contato) REFERENCES Contato(id_contato),
     FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco),
     FOREIGN KEY (id_redes) REFERENCES RedeSociais(id_redes)
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Animal:
 
-<<<<<<< HEAD
-```bash 
-CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
-  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
-  `Experiencia` text DEFAULT NULL,
-  `Senha_usuario` varchar(100) NOT NULL,
-  `Email_usuario` varchar(100) NOT NULL
-=======
 ```sql
 CREATE TABLE `Animal` (
     `id_animal` INT PRIMARY KEY AUTO_INCREMENT,
@@ -118,21 +95,11 @@ CREATE TABLE `Animal` (
     `descricao` VARCHAR(500),
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario),
     FOREIGN KEY (id_endereco) REFERENCES Endereco(id_endereco)
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Contato:
 
-<<<<<<< HEAD
-```bash 
-CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
-  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
-  `Experiencia` text DEFAULT NULL,
-  `Senha_usuario` varchar(100) NOT NULL,
-  `Email_usuario` varchar(100) NOT NULL
-=======
 ```sql
 CREATE TABLE `Contato` (
     `id_contato` INT PRIMARY KEY AUTO_INCREMENT,
@@ -140,21 +107,11 @@ CREATE TABLE `Contato` (
     `telefone_residencial` VARCHAR(15),
     `telefone_celular` VARCHAR(15),
     `email` VARCHAR(100)
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Endereço:
 
-<<<<<<< HEAD
-```bash 
-CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
-  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
-  `Experiencia` text DEFAULT NULL,
-  `Senha_usuario` varchar(100) NOT NULL,
-  `Email_usuario` varchar(100) NOT NULL
-=======
 ```sql
 CREATE TABLE `Endereco` (
     `id_endereco` INT PRIMARY KEY AUTO_INCREMENT,
@@ -164,27 +121,16 @@ CREATE TABLE `Endereco` (
     `complemento` VARCHAR(255),
     `cep` VARCHAR(10) NOT NULL,
     `bairro` VARCHAR(30) NOT NULL
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
 ### Tabela Redes Sociais:
 
-<<<<<<< HEAD
-```bash 
-CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
-  `Tipo_usuario` enum('Cuidador','Tutor','Cuidador/Tutor') DEFAULT NULL,
-  `Experiencia` text DEFAULT NULL,
-  `Senha_usuario` varchar(100) NOT NULL,
-  `Email_usuario` varchar(100) NOT NULL
-=======
 ```sql 
 CREATE TABLE `RedeSociais` (
     `id_redes` INT PRIMARY KEY AUTO_INCREMENT,
     `tipo_redes` VARCHAR(30) NOT NULL,
     `identificador` VARCHAR(100) NOT NULL
->>>>>>> 39edbe81b1993df0ae41d70e6c9803a0f386bf0b
 );
 ```
 
