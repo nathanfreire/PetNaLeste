@@ -204,13 +204,13 @@ ALTER TABLE `Animal`
 Carlos Antonio,
 Gabriel Lima,
 Lucas Henrique,
-Nathan Freire
+Nathan Freire.
 
 ---
 
 ## Status do Projeto
 
-- Em Desenvolvimento
+- Em Desenvolvimento.
 
   ---
 
