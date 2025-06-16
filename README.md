@@ -63,7 +63,7 @@ node index.js
 
 ```sql
 CREATE TABLE `Usuario` (
-    `id_usuario` **INT PRIMARY KEY AUTO_INCREMENT,
+    `id_usuario` INT PRIMARY KEY AUTO_INCREMENT,
     `nome_usuario` VARCHAR(50) NOT NULL,
     `senha` VARCHAR(30) NOT NULL,
     `foto_usuario` VARCHAR(500),
