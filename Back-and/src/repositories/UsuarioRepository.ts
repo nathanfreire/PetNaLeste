@@ -10,7 +10,7 @@ export default class UsuarioRepository implements Commands <Usuario>{
             let id_end: any;
             let id_con: any;
     
-            conexao.query("INSERT INTO endereco (tipo_logradouro,logradouro,numero,complemento,cep,bairro) VALUES (?,?,?,?,?,?)", [
+            conexao.query("INSERT INTO Endereco (tipo_logradouro,logradouro,numero,complemento,cep,bairro) VALUES (?,?,?,?,?,?)", [
                 obj.endereco?.tipo_logradouro,
                 obj.endereco?.logradouro,
                 obj.endereco?.numero,
@@ -24,7 +24,7 @@ export default class UsuarioRepository implements Commands <Usuario>{
                     id_end = end.insertId;
                 }
     
-                conexao.query("INSERT INTO contato (id_redes,telefone_residencial,telefone_celular,email) VALUES (?,?,?,?)", [
+                conexao.query("INSERT INTO Contato (id_redes,telefone_residencial,telefone_celular,email) VALUES (?,?,?,?)", [
                     obj.contato.redes,
                     obj.contato.telefone_residencial,
                     obj.contato.celular,
@@ -36,7 +36,7 @@ export default class UsuarioRepository implements Commands <Usuario>{
                         id_con = end.insertId;
                     }
     
-                    conexao.query("INSERT INTO usuario (nome_usuario,senha,foto_usuario,id_contato,id_endereco,id_redes) VALUES (?,?,?,?,?,?)", [
+                    conexao.query("INSERT INTO Usuario (nome_usuario,senha,foto_usuario,id_contato,id_endereco,id_redes) VALUES (?,?,?,?,?,?)", [
                         obj.nome,
                         obj.senha,
                         obj.foto,
@@ -57,7 +57,7 @@ export default class UsuarioRepository implements Commands <Usuario>{
     
     Listar(): Promise<Usuario[]> {
         return new Promise((resolve,reject)=>{
-            conexao.query("Select * from usuario",(erro,result)=>{
+            conexao.query("Select * from Usuario",(erro,result)=>{
                 if (erro) {
                     return reject(erro)
                 } else{

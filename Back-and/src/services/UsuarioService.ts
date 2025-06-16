@@ -23,7 +23,7 @@ export default class UsuarioService{
     }
     async listarUsuario (req:Request, res:Response){
         try {
-            const rs = await this.usuRepository.Listar
+            const rs = await this.usuRepository.Listar()
             return res.status(200).json(rs)
 
         } catch (error) {
