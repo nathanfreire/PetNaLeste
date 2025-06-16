@@ -7,15 +7,15 @@ O PetNaLeste promove a conscientização sobre a importância da identificação
 
 ## Objetivo do Projeto:
 
--
--
+- Facilitar o reencontro entre tutores e animais de estimação perdidos na Zona Leste de São Paulo, por meio de uma plataforma digital colaborativa que conecta pessoas da comunidade.
+- Promover a conscientização sobre a importância da identificação e cuidados com os pets, fortalecendo uma rede solidária entre moradores, protetores independentes e abrigos da região.
 
 ---
 
 ## Público Alvo:
 
--
--
+- Tutores de animais de estimação que residem na Zona Leste de São Paulo e que estejam enfrentando a perda de seus pets.
+- Moradores da região, protetores de animais, ONGs e pessoas que encontraram animais perdidos e desejam ajudar a promover o reencontro com seus donos.
 
 ---
 
