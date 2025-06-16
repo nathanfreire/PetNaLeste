@@ -177,10 +177,10 @@ ALTER TABLE `Animal`
 ## Seções 
 
 - Home
-- Encontre seu Pet
+- Perdi um Pet
+- Achei um Pet
 - Como Funciona
 - Login/Cadastrar-se
-- Revise e confirme sua reserva
 - Contato
 
 ---
