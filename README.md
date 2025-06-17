@@ -200,8 +200,7 @@ ALTER TABLE `Animal`
 
 ![GitHub License](https://img.shields.io/github/license/nathanfreire/PetNaLeste)
 
-## Autores
-
+## Colaboradores
 
 <table>
   <tr>
