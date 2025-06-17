@@ -225,7 +225,7 @@ ALTER TABLE `Animal`
       <a href="#">
         <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Lucas Henrique"/><br>
         <sub>
-          <b>Lucas Henrique Job</b>
+          <b>Lucas Henrique do Job</b>
         </sub>
       </a>
     </td>
