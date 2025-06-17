@@ -214,7 +214,7 @@ ALTER TABLE `Animal`
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://t.ctcdn.com.br/n7eZ74KAcU3iYwnQ89-ul9txVxc=/400x400/smart/filters:format(webp)/i490769.jpeg" width="100px;" alt="Gabriel Lima"/><br>
+        <img src="Front-and/img/foto2git.jpg" width="100px;" alt="Gabriel Lima"/><br>
         <sub>
           <b>Gabriel Lima</b>
         </sub>
@@ -222,15 +222,15 @@ ALTER TABLE `Animal`
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Lucas Henrique"/><br>
+        <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
         <sub>
-          <b>Lucas Henrique do Job</b>
+          <b>Lucas Henrique do job</b>
         </sub>
       </a>
     </td>
     <td align="center">
       <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Nathan Freire"/><br>
+        <img src="Front-and/img/foto4git.jpg" width="100px;" alt="Nathan Freire"/><br>
         <sub>
           <b>Nathan Freire</b>
         </sub>
