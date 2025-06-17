@@ -224,7 +224,7 @@ ALTER TABLE `Animal`
       <a href="#">
         <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
         <sub>
-          <b>Lucas Henrique do job</b>
+          <b>Lucas Henrique</b>
         </sub>
       </a>
     </td>
