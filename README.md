@@ -205,39 +205,32 @@ ALTER TABLE `Animal`
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/carlos-antonio" target="_blank">
         <img src="Front-and/img/bolsonaro.jpg" width="100px;" alt="Carlos Antonio"/><br>
-        <sub>
-          <b>Carlos Antonio</b>
-        </sub>
+        <sub><b>Carlos Antonio</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/gabriel-lima" target="_blank">
         <img src="Front-and/img/foto2git.jpg" width="100px;" alt="Gabriel Lima"/><br>
-        <sub>
-          <b>Gabriel Lima</b>
-        </sub>
+        <sub><b>Gabriel Lima</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/lucas-henrique" target="_blank">
         <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
-        <sub>
-          <b>Lucas Henrique</b>
-        </sub>
+        <sub><b>Lucas Henrique</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/nathan-furukawa/" target="_blank">
         <img src="Front-and/img/foto4git.jpg" width="100px;" alt="Nathan Freire"/><br>
-        <sub>
-          <b>Nathan Freire</b>
-        </sub>
+        <sub><b>Nathan Freire</b></sub>
       </a>
     </td>
   </tr>
 </table>
+
 
 ---
 
