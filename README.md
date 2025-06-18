@@ -205,19 +205,19 @@ ALTER TABLE `Animal`
 <table>
   <tr>
     <td align="center">
-      <a href="https://www.linkedin.com/in/carlos-antonio" target="_blank">
+      <a href="https://www.linkedin.com/in/carlosabcj/" target="_blank">
         <img src="Front-and/img/bolsonaro.jpg" width="100px;" alt="Carlos Antonio"/><br>
         <sub><b>Carlos Antonio</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/gabriel-lima" target="_blank">
+      <a href="https://www.linkedin.com/in/gabriel-lima-a078182b3/" target="_blank">
         <img src="Front-and/img/foto2git.jpg" width="100px;" alt="Gabriel Lima"/><br>
         <sub><b>Gabriel Lima</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="https://www.linkedin.com/in/lucas-henrique" target="_blank">
+      <a href="" target="_blank">
         <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
         <sub><b>Lucas Henrique</b></sub>
       </a>
