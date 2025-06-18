@@ -1,15 +1,20 @@
 import Usuario from "../classes/Usuario";
 import UsuarioRepository from "../repositories/UsuarioRepository";
 import { Request,Response } from "express";
+import bcrypt from "bcrypt"
 
 export default class UsuarioService{
 
     usuRepository = new UsuarioRepository()
+    async criptografiaSenha(senha:string){
+        let rs = await bcrypt.hash (senha,12)
+        return rs
+    }
     async cadastroUsuario(req:Request, res:Response){
         const usu:Usuario = new Usuario()
         usu.nome = req.body.nome;
         usu.endereco = req.body.endereco;
-        usu.senha = req.body.senha;
+        usu.senha = (await this.criptografiaSenha(req.body.senha)).toString()
         usu.foto = req.body.foto;
         usu.contato = req.body.contato;
         

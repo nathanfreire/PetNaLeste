@@ -2,9 +2,13 @@
 import Usuario from "../classes/Usuario";
 import Commands from "../interfaces/Commands";
 import { conexao } from "../database/Config";
+import CommandsUsuario from "../interfaces/CommandsUsuario";
 
 
-export default class UsuarioRepository implements Commands <Usuario>{
+export default class UsuarioRepository implements CommandsUsuario <Usuario>{
+    login(usuario: string, senha: string) {
+        throw new Error("Method not implemented.");
+    }
     Cadastrar(obj: Usuario): Promise<Usuario> {
         return new Promise((resolve, reject) => {
             let id_end: any;
