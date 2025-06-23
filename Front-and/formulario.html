@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadastro Usuário e Animal</title>
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background:  rgb(0, 178, 209);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .form-container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 520px;
+      box-sizing: border-box;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgb(228, 91, 0);
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #555;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+      font-family: inherit;
+      resize: vertical;
+    }
+    textarea {
+      height: 80px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px 0;
+      background-color: rgb(228, 91, 0);
+      border: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: rgb(228, 91, 0);
+    }
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .form-container {
+        padding: 20px;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="file"],
+      select,
+      textarea,
+      button {
+        font-size: 16px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+    }
+    /* Mensagem de erro simples */
+    .error {
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form id="cadastroForm" novalidate>
+      <!-- Dados do Usuário -->
+      <h2>Dados do Usuário</h2>
+
+      <label for="usuario">Nome de Usuário *</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário" required />
+
+      <label for="senha">Senha *</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+      <label for="fotoUsuario">Foto do Usuário</label>
+      <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*" />
+
+      <label for="telResidencial">Telefone Residencial</label>
+      <input type="tel" id="telResidencial" name="telResidencial" placeholder="(XX) XXXX-XXXX" maxlength="14" />
+
+      <label for="telCelular">Telefone Celular</label>
+      <input type="tel" id="telCelular" name="telCelular" placeholder="(XX) 9XXXX-XXXX" maxlength="15" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
+
+      <label for="tipoLogradouro">Tipo Logradouro *</label>
+      <select id="tipoLogradouro" name="tipoLogradouro" required>
+        <option value="" disabled selected>Selecione o tipo</option>
+        <option value="rua">Rua</option>
+        <option value="avenida">Avenida</option>
+        <option value="praça">Praça</option>
+        <option value="travessa">Travessa</option>
+        <option value="estrada">Estrada</option>
+        <option value="outro">Outro</option>
+      </select>
+
+      <label for="logradouro">Logradouro *</label>
+      <input type="text" id="logradouro" name="logradouro" placeholder="Nome do logradouro" required />
+
+      <label for="numero">Número *</label>
+      <input type="text" id="numero" name="numero" placeholder="Número da residência" required />
+
+      <label for="complemento">Complemento</label>
+      <input type="text" id="complemento" name="complemento" placeholder="Complemento (opcional)" />
+
+      <label for="cep">CEP *</label>
+      <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
+
+      <label for="bairro">Bairro *</label>
+      <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro" required />
+
+      <!-- Dados do Animal -->
+      <h2>Dados do Animal</h2>
+
+      <label for="tipo">Tipo de Animal *</label>
+      <input type="text" id="tipo" name="tipo" placeholder="Ex: Cachorro, Gato" required />
+
+      <label for="raca">Raça *</label>
+      <input type="text" id="raca" name="raca" placeholder="Ex: Labrador" required />
+
+      <label for="cor">Cor *</label>
+      <input type="text" id="cor" name="cor" placeholder="Ex: Marrom" required />
+
+      <label for="porte">Porte *</label>
+      <select id="porte" name="porte" required>
+        <option value="" disabled selected>Selecione o porte</option>
+        <option value="pequeno">Pequeno</option>
+        <option value="medio">Médio</option>
+        <option value="grande">Grande</option>
+      </select>
+
+      <label for="sexo">Sexo *</label>
+      <select id="sexo" name="sexo" required>
+        <option value="" disabled selected>Selecione o sexo</option>
+        <option value="macho">Macho</option>
+        <option value="femea">Fêmea</option>
+      </select>
+
+      <label for="dataEncontrado">Data Encontrado</label>
+      <input type="date" id="dataEncontrado" name="dataEncontrado" />
+
+      <label for="dataPerdido">Data Perdido</label>
+      <input type="date" id="dataPerdido" name="dataPerdido" />
+
+      <label for="foto">Foto do Animal</label>
+      <input type="file" id="foto" name="foto" accept="image/*" />
+
+      <label for="status">Status *</label>
+      <select id="status" name="status" required>
+        <option value="" disabled selected>Selecione o status</option>
+        <option value="perdido">Perdido</option>
+        <option value="encontrado">Encontrado</option>
+        <option value="adotado">Adotado</option>
+      </select>
+
+      <label for="descricao">Descrição</label>
+      <textarea id="descricao" name="descricao" placeholder="Descreva o animal..."></textarea>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

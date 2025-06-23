@@ -44,6 +44,7 @@ footer{
     background-image: var(--degrade-btn);
     font-weight: bold;
     margin: 10px;
+    border-radius: 20px;
 }
 
 /* classes do site */
@@ -292,9 +293,6 @@ footer .container a{
     color: white;
 }
 /* fim footer /*
-
-
-
 
 
 /* responsivo */
