@@ -57,8 +57,8 @@ nav{
 
 .logo a{
     font-size: 30px;
-    font-weight: bold;
-    color: rgb(228, 91, 0)
+    font-weight: bold; 
+    color: rgb(228, 91, 0) !important
 }
 
 .ul{
@@ -157,8 +157,9 @@ background-color: rgb(0, 178, 209);
 
 .diferencias .container{
     display: flex;
-    justify-content: space-between;
-    margin: 30px auto;
+    justify-content: space-around;
+    margin-top: 30px;
+
 }
 
 .diferencias .card{
@@ -167,6 +168,7 @@ background-color: rgb(0, 178, 209);
     border-radius: 15px;
     transition: 0.3s;
     background-color: white;
+    margin-top: 15px;
 }
 .diferencias .card:hover{
 box-shadow: 0px 10px 67px 8px #e6e6fa85;
@@ -267,11 +269,12 @@ box-shadow: 0px 10px 67px 8px #e6e6fa85;
 /* footer */
 
 footer {
-    background: rgb(233, 140, 0)
+    background: rgb(0, 178, 209);
 }
 footer .container{
     display: flex;
     color: white;
+    justify-content:space-between;
 }
 footer .container ul{
     width: 25%;
@@ -284,7 +287,7 @@ footer .container .redes-sociais img{
     margin-right: 10px;
 }
 footer .container ul > p{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 footer .container li{
     margin: 10px 0; 
@@ -301,8 +304,9 @@ footer .container a{
         display: block;
     }
     .ul {
+        transition: 0.4s;
         position: fixed;
-        background: rgb(67, 195, 218);
+        background: rgb(0, 178, 209);
         top: 0;
         width: 100%;
         height: 100%;

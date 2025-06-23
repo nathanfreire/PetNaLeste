@@ -200,40 +200,37 @@ ALTER TABLE `Animal`
 
 ![GitHub License](https://img.shields.io/github/license/nathanfreire/PetNaLeste)
 
-## Autores
-Carlos Antonio,
-Gabriel Lima,
-Lucas Henrique,
-Nathan Freire.
+## Colaboradores
 
 <table>
   <tr>
     <td align="center">
-      <a href="#">
-        <img src="https://avatars.githubusercontent.com/u/61896274?v=4" width="100px;" alt="Fernanda Kipper Profile Picture"/><br>
-        <sub>
-          <b>Fernanda Kipper</b>
-        </sub>
+      <a href="https://www.linkedin.com/in/carlosabcj/" target="_blank">
+        <img src="Front-and/img/bolsonaro.jpg" width="100px;" alt="Carlos Antonio"/><br>
+        <sub><b>Carlos Antonio</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
-        <img src="https://t.ctcdn.com.br/n7eZ74KAcU3iYwnQ89-ul9txVxc=/400x400/smart/filters:format(webp)/i490769.jpeg" width="100px;" alt="Elon Musk Picture"/><br>
-        <sub>
-          <b>Elon Musk</b>
-        </sub>
+      <a href="https://www.linkedin.com/in/gabriel-lima-a078182b3/" target="_blank">
+        <img src="Front-and/img/foto2git.jpg" width="100px;" alt="Gabriel Lima"/><br>
+        <sub><b>Gabriel Lima</b></sub>
       </a>
     </td>
     <td align="center">
-      <a href="#">
-        <img src="https://miro.medium.com/max/360/0*1SkS3mSorArvY9kS.jpg" width="100px;" alt="Foto do Steve Jobs"/><br>
-        <sub>
-          <b>Steve Jobs</b>
-        </sub>
+      <a href="" target="_blank">
+        <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
+        <sub><b>Lucas Henrique</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/nathan-furukawa/" target="_blank">
+        <img src="Front-and/img/foto4git.jpg" width="100px;" alt="Nathan Freire"/><br>
+        <sub><b>Nathan Freire</b></sub>
       </a>
     </td>
   </tr>
 </table>
+
 
 ---
 
