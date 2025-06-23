@@ -307,8 +307,9 @@ footer .container a{
         display: block;
     }
     .ul {
+        transition: 0.4s;
         position: fixed;
-        background: rgb(67, 195, 218);
+        background: rgb(0, 178, 209);
         top: 0;
         width: 100%;
         height: 100%;
