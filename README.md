@@ -217,7 +217,7 @@ ALTER TABLE `Animal`
       </a>
     </td>
     <td align="center">
-      <a href="" target="_blank">
+      <a href="https://www.linkedin.com/in/lucas-henrique-0148422b2/" target="_blank">
         <img src="Front-and/img/foto3git.jpg" width="100px;" alt="Lucas Henrique"/><br>
         <sub><b>Lucas Henrique</b></sub>
       </a>
