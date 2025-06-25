@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cadastro Usuário e Animal</title>
+  <a href="index.html" class="fechar-btn">×</a>
   <style>
-    
     body {
       font-family: Arial, sans-serif;
-      background:  rgb(0, 178, 209);
+      background: rgb(0, 178, 209);
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -16,33 +16,67 @@
       margin: 0;
       padding: 20px;
     }
-    .form-container {
+
+    .fechar-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1000;
+  background: rgb(228, 91, 0);
+  padding: 4px 12px;
+  border-radius: 50%;
+  line-height: 32px;
+}
+.fechar-btn:hover {
+  background: rgb(200, 80, 0);
+}
+
+
+    form {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .form-animal,
+    .form-usuario {
       background: #fff;
       padding: 25px 30px;
       border-radius: 10px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 520px;
+      flex: 1 1 500px;
       box-sizing: border-box;
     }
+
     h2 {
       color: #333;
       margin-bottom: 15px;
       border-bottom: 2px solid rgb(228, 91, 0);
       padding-bottom: 5px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
       color: #555;
     }
+
     input[type="text"],
     input[type="password"],
     input[type="email"],
     input[type="tel"],
     input[type="file"],
+    input[type="date"],
     select,
     textarea {
       width: 100%;
@@ -55,9 +89,11 @@
       font-family: inherit;
       resize: vertical;
     }
+
     textarea {
       height: 80px;
     }
+
     button {
       margin-top: 25px;
       width: 100%;
@@ -71,86 +107,35 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: rgb(228, 91, 0);
+      background-color: rgb(200, 80, 0);
     }
-    /* Responsividade */
-    @media (max-width: 480px) {
-      .form-container {
-        padding: 20px;
-      }
-      input[type="text"],
-      input[type="password"],
-      input[type="email"],
-      input[type="tel"],
-      input[type="file"],
-      select,
-      textarea,
-      button {
-        font-size: 16px;
-      }
-      h2 {
-        font-size: 20px;
-      }
-    }
-    /* Mensagem de erro simples */
+
     .error {
       border-color: red;
       background-color: #ffe6e6;
     }
+
+    @media (max-width: 768px) {
+      form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .form-animal,
+      .form-usuario {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="form-container">
-    <form id="cadastroForm" novalidate>
-      <!-- Dados do Usuário -->
-      <h2>Dados do Usuário</h2>
 
-      <label for="usuario">Nome de Usuário *</label>
-      <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário" required />
+  <form id="cadastroForm" novalidate>
 
-      <label for="senha">Senha *</label>
-      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
-
-      <label for="fotoUsuario">Foto do Usuário</label>
-      <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*" />
-
-      <label for="telResidencial">Telefone Residencial</label>
-      <input type="tel" id="telResidencial" name="telResidencial" placeholder="(XX) XXXX-XXXX" maxlength="14" />
-
-      <label for="telCelular">Telefone Celular</label>
-      <input type="tel" id="telCelular" name="telCelular" placeholder="(XX) 9XXXX-XXXX" maxlength="15" />
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
-
-      <label for="tipoLogradouro">Tipo Logradouro *</label>
-      <select id="tipoLogradouro" name="tipoLogradouro" required>
-        <option value="" disabled selected>Selecione o tipo</option>
-        <option value="rua">Rua</option>
-        <option value="avenida">Avenida</option>
-        <option value="praça">Praça</option>
-        <option value="travessa">Travessa</option>
-        <option value="estrada">Estrada</option>
-        <option value="outro">Outro</option>
-      </select>
-
-      <label for="logradouro">Logradouro *</label>
-      <input type="text" id="logradouro" name="logradouro" placeholder="Nome do logradouro" required />
-
-      <label for="numero">Número *</label>
-      <input type="text" id="numero" name="numero" placeholder="Número da residência" required />
-
-      <label for="complemento">Complemento</label>
-      <input type="text" id="complemento" name="complemento" placeholder="Complemento (opcional)" />
-
-      <label for="cep">CEP *</label>
-      <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
-
-      <label for="bairro">Bairro *</label>
-      <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro" required />
-
-      <!-- Dados do Animal -->
+    <!-- Formulário do Animal (lado esquerdo) -->
+    <div class="form-animal">
       <h2>Dados do Animal</h2>
 
       <label for="tipo">Tipo de Animal *</label>
@@ -196,10 +181,60 @@
 
       <label for="descricao">Descrição</label>
       <textarea id="descricao" name="descricao" placeholder="Descreva o animal..."></textarea>
+    </div>
+
+    <!-- Formulário do Usuário (lado direito) -->
+    <div class="form-usuario">
+      <h2>Dados do Usuário</h2>
+
+      <label for="usuario">Nome de Usuário *</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário" required />
+
+      <label for="senha">Senha *</label>
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+      <!--<label for="fotoUsuario">Foto do Usuário</label>
+      <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*" />
+
+      <label for="telResidencial">Telefone Residencial</label>
+      <input type="tel" id="telResidencial" name="telResidencial" placeholder="(XX) XXXX-XXXX" maxlength="14" />-->
+
+      <label for="telCelular">Telefone Celular</label>
+      <input type="tel" id="telCelular" name="telCelular" placeholder="(XX) 9XXXX-XXXX" maxlength="15" />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
+
+      <label for="tipoLogradouro">Tipo Logradouro *</label>
+      <select id="tipoLogradouro" name="tipoLogradouro" required>
+        <option value="" disabled selected>Selecione o tipo</option>
+        <option value="rua">Rua</option>
+        <option value="avenida">Avenida</option>
+        <option value="praça">Praça</option>
+        <option value="travessa">Travessa</option>
+        <option value="estrada">Estrada</option>
+        <option value="outro">Outro</option>
+      </select>
+
+      <label for="logradouro">Logradouro *</label>
+      <input type="text" id="logradouro" name="logradouro" placeholder="Nome do logradouro" required />
+
+      <label for="numero">Número *</label>
+      <input type="text" id="numero" name="numero" placeholder="Número da residência" required />
+
+      <label for="complemento">Complemento</label>
+      <input type="text" id="complemento" name="complemento" placeholder="Complemento (opcional)" />
+
+      <label for="cep">CEP *</label>
+      <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
+
+      <label for="bairro">Bairro *</label>
+      <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro" required />
 
       <button type="submit">Cadastrar</button>
-    </form>
-  </div>
+    </div>
+
+  </form>
 
   <script src="js/script.js"></script>
 </body>

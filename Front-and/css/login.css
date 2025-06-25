@@ -27,6 +27,27 @@ body{
 
 
 }
+
+.fechar-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 32px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background: rgb(228, 91, 0);
+    padding: 4px 12px;
+    border-radius: 50%;
+    line-height: 32px;
+    transition: background 0.3s ease;
+    z-index: 1000;
+}
+.fechar-btn:hover {
+    background: rgb(200, 80, 0);
+}
+
+
 .container{
     max-width: 850px;
     background: #ffffff;
