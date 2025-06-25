@@ -275,7 +275,7 @@ footer {
 footer .container{
     display: flex;
     color: white;
-    justify-content:space-between;
+    justify-content:space-evenly;
 }
 footer .container ul{
     width: 25%;
@@ -297,6 +297,15 @@ footer .container a{
     color: white;
 }
 /* fim footer /*
+
+/* topo do site */
+#topo {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+  }
+
+
 
 
 /* responsivo */
