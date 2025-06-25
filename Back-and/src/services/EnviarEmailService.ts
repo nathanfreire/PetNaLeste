@@ -1,7 +1,6 @@
 import nodemailer from 'nodemailer';
 import { IEmailRequest } from '../interfaces/IEmailRequest';
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("EMAIL_PASS:", process.env.EMAIL_PASS);
+
 class EnviarEmailService {
   async execute({ email, mensagem }: IEmailRequest): Promise<void> {
     if (!email || !mensagem) {
