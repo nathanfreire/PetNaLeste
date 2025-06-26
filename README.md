@@ -206,7 +206,7 @@ ALTER TABLE `Animal`
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/carlosabcj/" target="_blank">
-        <img src="Front-and/img/bolsonaro.jpg" width="100px;" alt="Carlos Antonio"/><br>
+        <img src="Front-and/img/foto1git.jpg" width="100px;" alt="Carlos Antonio"/><br>
         <sub><b>Carlos Antonio</b></sub>
       </a>
     </td>
