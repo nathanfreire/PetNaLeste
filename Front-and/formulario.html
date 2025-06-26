@@ -3,239 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadastro Usuário e Animal</title>
-  <a href="index.html" class="fechar-btn">×</a>
+  <title>Formulário Multi-etapas com Imagem</title>
   <style>
-    body {
+    html, body {
       font-family: Arial, sans-serif;
-      background: rgb(0, 178, 209);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
       margin: 0;
-      padding: 20px;
-    }
-
-    .fechar-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 32px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  z-index: 1000;
-  background: rgb(228, 91, 0);
-  padding: 4px 12px;
-  border-radius: 50%;
-  line-height: 32px;
-}
-.fechar-btn:hover {
-  background: rgb(200, 80, 0);
-}
-
-
-    form {
+      padding: 0;
+      height: 100dvh;
+      background-color: rgb(0, 178, 209);
       display: flex;
-      gap: 40px;
-      justify-content: center;
-      align-items: flex-start;
-      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    #formContainer {
+      display: flex;
+      flex: 1;
       width: 100%;
-      max-width: 1200px;
     }
 
-    .form-animal,
-    .form-usuario {
-      background: #fff;
-      padding: 25px 30px;
+    .side-panel {
+      flex: 1;
+      background-color: rgb(0, 178, 209);
+      color: white;
+      padding: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .side-panel img {
+      max-width: 80%;
+      margin: 20px auto 0;
       border-radius: 10px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      flex: 1 1 500px;
-      box-sizing: border-box;
+      transition: opacity 0.3s ease;
     }
 
-    h2 {
-      color: #333;
-      margin-bottom: 15px;
-      border-bottom: 2px solid rgb(228, 91, 0);
-      padding-bottom: 5px;
-      margin-top: 20px;
+    .form-panel {
+      flex: 1;
+      background-color: rgb(0, 178, 209);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: block;
+      color: white;
     }
 
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
-      color: #555;
     }
 
-    input[type="text"],
-    input[type="password"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="file"],
-    input[type="date"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 8px 10px;
+    input, select, textarea {
+      width: 80%;
+      padding: 8px;
       margin-top: 5px;
-      border: 1px solid #ccc;
       border-radius: 5px;
-      font-size: 14px;
-      box-sizing: border-box;
-      font-family: inherit;
-      resize: vertical;
+      border: 1px solid #ccc;
     }
 
     textarea {
-      height: 80px;
+      min-height: 80px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
     }
 
     button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 12px 0;
       background-color: rgb(228, 91, 0);
-      border: none;
       color: white;
-      font-size: 16px;
-      font-weight: bold;
+      border: none;
       border-radius: 5px;
+      padding: 12px 25px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-size: 16px;
     }
 
-    button:hover {
-      background-color: rgb(200, 80, 0);
+    button:disabled {
+      background-color: #ccc;
+      cursor: default;
     }
 
-    .error {
-      border-color: red;
-      background-color: #ffe6e6;
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      z-index: 999;
     }
 
     @media (max-width: 768px) {
-      form {
+      html, body {
         flex-direction: column;
-        align-items: stretch;
+        height: auto;
+        min-height: 100dvh;
       }
 
-      .form-animal,
-      .form-usuario {
+      .side-panel {
+        display: none;
+      }
+
+      .form-panel {
         width: 100%;
+        padding: 20px;
+        background-color: rgb(0, 178, 209);
+      }
+
+      input, select, textarea {
+        width: 100% !important;
+      }
+
+      .close-button {
+        top: 10px;
+        right: 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <form id="cadastroForm" novalidate>
-
-    <!-- Formulário do Animal (lado esquerdo) -->
-    <div class="form-animal">
-      <h2>Dados do Animal</h2>
-
-      <label for="tipo">Tipo de Animal *</label>
-      <input type="text" id="tipo" name="tipo" placeholder="Ex: Cachorro, Gato" required />
-
-      <label for="raca">Raça *</label>
-      <input type="text" id="raca" name="raca" placeholder="Ex: Labrador" required />
-
-      <label for="cor">Cor *</label>
-      <input type="text" id="cor" name="cor" placeholder="Ex: Marrom" required />
-
-      <label for="porte">Porte *</label>
-      <select id="porte" name="porte" required>
-        <option value="" disabled selected>Selecione o porte</option>
-        <option value="pequeno">Pequeno</option>
-        <option value="medio">Médio</option>
-        <option value="grande">Grande</option>
-      </select>
-
-      <label for="sexo">Sexo *</label>
-      <select id="sexo" name="sexo" required>
-        <option value="" disabled selected>Selecione o sexo</option>
-        <option value="macho">Macho</option>
-        <option value="femea">Fêmea</option>
-      </select>
-
-      <label for="dataEncontrado">Data Encontrado</label>
-      <input type="date" id="dataEncontrado" name="dataEncontrado" />
-
-      <label for="dataPerdido">Data Perdido</label>
-      <input type="date" id="dataPerdido" name="dataPerdido" />
-
-      <label for="foto">Foto do Animal</label>
-      <input type="file" id="foto" name="foto" accept="image/*" />
-
-      <label for="status">Status *</label>
-      <select id="status" name="status" required>
-        <option value="" disabled selected>Selecione o status</option>
-        <option value="perdido">Perdido</option>
-        <option value="encontrado">Encontrado</option>
-        <option value="adotado">Adotado</option>
-      </select>
-
-      <label for="descricao">Descrição</label>
-      <textarea id="descricao" name="descricao" placeholder="Descreva o animal..."></textarea>
+  <div id="formContainer">
+    <div class="side-panel">
+      <h1></h1>
+      <p></p>
+      <img id="sideImage" src="img/animais.png" alt="Imagem do Pet" />
     </div>
 
-    <!-- Formulário do Usuário (lado direito) -->
-    <div class="form-usuario">
-      <h2>Dados do Usuário</h2>
+    <div class="form-panel">
+      <div class="close-button" onclick="fecharFormulario()">×</div>
 
-      <label for="usuario">Nome de Usuário *</label>
-      <input type="text" id="usuario" name="usuario" placeholder="Digite seu nome de usuário" required />
+      <form id="multiStepForm">
+        <div class="form-step active">
+          <h2>Cadastro do Pet</h2>
+          <label for="tipo">Tipo de Animal</label>
+          <input type="text" id="tipo" name="tipo" required />
+          <label for="raca">Raça</label>
+          <input type="text" id="raca" name="raca" required />
+          <label for="cor">Cor</label>
+          <input type="text" id="cor" name="cor" required />
+          <label for="porte">Porte</label>
+          <select id="porte" name="porte" required>
+            <option value="">Selecione</option>
+            <option value="Pequeno">Pequeno</option>
+            <option value="Médio">Médio</option>
+            <option value="Grande">Grande</option>
+          </select>
+          <label for="sexo">Sexo</label>
+          <select id="sexo" name="sexo" required>
+            <option value="">Selecione</option>
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
+          </select>
+          <div class="buttons">
+            <span></span>
+            <button type="button" class="btn-next">Próximo</button>
+          </div>
+        </div>
 
-      <label for="senha">Senha *</label>
-      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+        <div class="form-step">
+          <h2>Cadastro do Pet</h2>
+          <label for="dataEncontrado">Data Encontrado</label>
+          <input type="date" id="dataEncontrado" name="dataEncontrado" />
+          <label for="dataPerdido">Data Perdido</label>
+          <input type="date" id="dataPerdido" name="dataPerdido" />
+          <label for="fotosAnimal">Foto(s) do Animal</label>
+          <input type="file" id="fotosAnimal" name="fotosAnimal" accept="image/*" multiple />
+          <label for="status">Status</label>
+          <select id="status" name="status" required>
+            <option value="">Selecione</option>
+            <option value="Encontrado">Encontrado</option>
+            <option value="Perdido">Perdido</option>
+          </select>
+          <label for="descricao">Descrição</label>
+          <textarea id="descricao" name="descricao" placeholder="Descreva o animal..."></textarea>
+          <div class="buttons">
+            <button type="button" class="btn-prev">Voltar</button>
+            <button type="button" class="btn-next">Próximo</button>
+          </div>
+        </div>
 
-      <!--<label for="fotoUsuario">Foto do Usuário</label>
-      <input type="file" id="fotoUsuario" name="fotoUsuario" accept="image/*" />
+        <div class="form-step">
+          <h2>Cadastro Usuário</h2>
+          <label for="usuario">Nome de Usuário</label>
+          <input type="text" id="usuario" name="usuario" required />
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" required />
+          <label for="fotosUsuario">Foto(s) do Usuário</label>
+          <input type="file" id="fotosUsuario" name="fotosUsuario" accept="image/*" multiple />
+          <label for="telResidencial">Telefone Residencial</label>
+          <input type="tel" id="telResidencial" name="telResidencial" placeholder="(XX) XXXX-XXXX" />
+          <label for="telCelular">Telefone Celular</label>
+          <input type="tel" id="telCelular" name="telCelular" placeholder="(XX) XXXXX-XXXX" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <div class="buttons">
+            <button type="button" class="btn-prev">Voltar</button>
+            <button type="button" class="btn-next">Próximo</button>
+          </div>
+        </div>
 
-      <label for="telResidencial">Telefone Residencial</label>
-      <input type="tel" id="telResidencial" name="telResidencial" placeholder="(XX) XXXX-XXXX" maxlength="14" />-->
-
-      <label for="telCelular">Telefone Celular</label>
-      <input type="tel" id="telCelular" name="telCelular" placeholder="(XX) 9XXXX-XXXX" maxlength="15" />
-
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required />
-
-      <label for="tipoLogradouro">Tipo Logradouro *</label>
-      <select id="tipoLogradouro" name="tipoLogradouro" required>
-        <option value="" disabled selected>Selecione o tipo</option>
-        <option value="rua">Rua</option>
-        <option value="avenida">Avenida</option>
-        <option value="praça">Praça</option>
-        <option value="travessa">Travessa</option>
-        <option value="estrada">Estrada</option>
-        <option value="outro">Outro</option>
-      </select>
-
-      <label for="logradouro">Logradouro *</label>
-      <input type="text" id="logradouro" name="logradouro" placeholder="Nome do logradouro" required />
-
-      <label for="numero">Número *</label>
-      <input type="text" id="numero" name="numero" placeholder="Número da residência" required />
-
-      <label for="complemento">Complemento</label>
-      <input type="text" id="complemento" name="complemento" placeholder="Complemento (opcional)" />
-
-      <label for="cep">CEP *</label>
-      <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required />
-
-      <label for="bairro">Bairro *</label>
-      <input type="text" id="bairro" name="bairro" placeholder="Nome do bairro" required />
-
-      <button type="submit">Cadastrar</button>
+        <div class="form-step">
+          <h2>Cadastro Usuário</h2>
+          <label for="tipoLogradouro">Tipo Logradouro</label>
+          <select id="tipoLogradouro" name="tipoLogradouro" required>
+            <option value="">Selecione</option>
+            <option>Rua</option>
+            <option>Avenida</option>
+            <option>Praça</option>
+            <option>Travessa</option>
+            <option>Estrada</option>
+            <option>Alameda</option>
+            <option>Outro</option>
+          </select>
+          <label for="logradouro">Logradouro</label>
+          <input type="text" id="logradouro" name="logradouro" required />
+          <label for="numero">Número</label>
+          <input type="text" id="numero" name="numero" required />
+          <label for="complemento">Complemento</label>
+          <input type="text" id="complemento" name="complemento" />
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" name="cep" required pattern="\d{5}-?\d{3}" title="CEP no formato 00000-000" />
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" name="bairro" required />
+          <div class="buttons">
+            <button type="button" class="btn-prev">Voltar</button>
+            <button type="submit">Cadastrar</button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 
-  </form>
+  <script>
+    const form = document.getElementById('multiStepForm');
+    const steps = document.querySelectorAll('.form-step');
+    const sideImage = document.getElementById('sideImage');
+    const images = ['img/animais.png'];
+    let currentStep = 0;
 
-  <script src="js/script.js"></script>
+    function showStep(step) {
+      steps.forEach((el, i) => el.classList.toggle('active', i === step));
+      sideImage.style.opacity = 0;
+      setTimeout(() => {
+        sideImage.src = images[0];
+        sideImage.style.opacity = 1;
+      }, 200);
+    }
+
+    function validateStep(step) {
+      const inputs = steps[step].querySelectorAll('input, select, textarea');
+      for (const input of inputs) {
+        if (!input.checkValidity()) {
+          input.reportValidity();
+          return false;
+        }
+      }
+      return true;
+    }
+
+    document.querySelectorAll('.btn-next').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (validateStep(currentStep) && currentStep < steps.length - 1) {
+          currentStep++;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    document.querySelectorAll('.btn-prev').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+        }
+      });
+    });
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (validateStep(currentStep)) {
+        alert('Formulário enviado com sucesso!');
+        form.reset();
+        currentStep = 0;
+        showStep(currentStep);
+      }
+    });
+
+    document.getElementById('cep').addEventListener('blur', function () {
+      const cep = this.value.replace(/\D/g, '');
+      if (cep.length !== 8) {
+        alert('CEP inválido. Deve conter 8 números.');
+        return;
+      }
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+          if ('erro' in data) return alert('CEP não encontrado.');
+          const logradouro = data.logradouro || '';
+          const tipos = ['Rua', 'Avenida', 'Praça', 'Travessa', 'Estrada', 'Alameda'];
+          const tipo = tipos.find(t => logradouro.startsWith(t)) || '';
+          document.getElementById('tipoLogradouro').value = tipo;
+          document.getElementById('logradouro').value = logradouro.replace(tipo, '').trim();
+          document.getElementById('bairro').value = data.bairro || '';
+          document.getElementById('cep').value = data.cep || cep;
+          document.getElementById('complemento').value = data.complemento || '';
+          document.getElementById('numero').focus();
+        })
+        .catch(() => alert('Erro ao buscar o CEP.'));
+    });
+
+    function fecharFormulario() {
+  window.location.href = 'index.html';
+}
+
+    showStep(currentStep);
+  </script>
+
 </body>
 </html>

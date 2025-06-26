@@ -1,41 +1,42 @@
-document.getElementById('formContato').addEventListener('submit', async function (e) {
-  e.preventDefault();
-
-  const emailInput = document.getElementById('email');
-  const mensagemInput = document.getElementById('mensagem');
-
-  const email = emailInput.value;
-  const mensagem = mensagemInput.value;
-
-  try {
-    const res = await fetch('http://127.0.0.1:5000/enviar-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, mensagem })
-    });
-
-    if (!res.ok) {
-      const result = await res.json();
-      alert("Erro ao enviar: " + (result.error || 'Erro desconhecido'));
-      return; // Para não continuar depois do erro
-    }
-
-    // Se chegou aqui, é sucesso
-    alert("Mensagem enviada com sucesso!");
-    emailInput.value = '';
-    mensagemInput.value = '';
-
-  } catch (error) {
-    console.error(error);
-    alert("Erro na conexão com o servidor.");
-  }
-});
-
-
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("cadastroForm");
-  const cepInput = document.getElementById("cep");
+  // Formulário contato
+  document.getElementById('formContato').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
+    const emailInput = document.getElementById('email');
+    const mensagemInput = document.getElementById('mensagem');
+
+    const email = emailInput.value;
+    const mensagem = mensagemInput.value;
+
+    try {
+      const res = await fetch('http://127.0.0.1:5000/enviar-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, mensagem })
+      });
+
+      if (!res.ok) {
+        const result = await res.json();
+        alert("Erro ao enviar: " + (result.error || 'Erro desconhecido'));
+        return;
+      }
+
+      alert("Mensagem enviada com sucesso!");
+      emailInput.value = '';
+      mensagemInput.value = '';
+
+    } catch (error) {
+      console.error(error);
+      alert("Erro na conexão com o servidor.");
+    }
+  });
+
+  // Formulário cadastro e CEP
+  const form = document.getElementById("cadastroForm");
+const cepInput = document.getElementById("cep");
+
+if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -46,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Por favor, preencha todos os campos obrigatórios.");
     }
   });
+}
+
 
   function validarFormulario(formulario) {
     const camposObrigatorios = formulario.querySelectorAll("[required]");
@@ -63,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return valido;
   }
 
-  // ✅ ViaCEP - Auto preenchimento de endereço
   cepInput.addEventListener("blur", () => {
     const cep = cepInput.value.replace(/\D/g, "");
 
