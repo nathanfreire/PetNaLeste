@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,10 @@
     <title>PetNaLeste</title>
 </head>
 
-<body>
+<body onload="carregar_pet()">
     <div class="background-branco">
         <!-- header -->
-         <header id="inicio">
+        <header id="inicio">
             <!-- container -->
             <div class="container">
                 <nav>
@@ -23,7 +24,7 @@
                         <li> <a href="#">Contato</a> </li>-->
                         <li> <a href="formulario.html"> <button class="btn-gradient">Perdi um Pet</button> </a></li>
                         <li> <a href="formulario.html"> <button class="btn-gradient">Achei um Pet</button> </a></li>
-                        <li> <a href="login.html"> <button class="btn-gradient" >Login</button> </a></li>
+                        <li> <a href="login.html"> <button class="btn-gradient">Login</button> </a></li>
                     </ul>
                     <div class="menu-icon">
                         <img src="img/menu.png" alt="icone menu">
@@ -31,12 +32,12 @@
                 </nav>
             </div>
             <!-- fim do container-->
-         </header>
-        <!-- fim do header -->   
-        <!-- main --> 
-         <main>
+        </header>
+        <!-- fim do header -->
+        <!-- main -->
+        <main>
             <!-- container -->
-             <div class="container">
+            <div class="container">
                 <!-- main text -->
                 <div class="main-text">
                     <h1>PetNaLeste</h1>
@@ -47,45 +48,34 @@
                     </div>
                 </div>
                 <!-- fim do main text -->
-                 <!-- imagem do main -->
-                  <div class="main-img">
+                <!-- imagem do main -->
+                <div class="main-img">
                     <img src="img/animais.png" alt="animais">
-                  </div>
-                 <!-- fim da imagem do main -->
-             </div>
-             <!-- fim do container -->
-         </main>
-         <!-- fim do main -->
+                </div>
+                <!-- fim da imagem do main -->
+            </div>
+            <!-- fim do container -->
+        </main>
+        <!-- fim do main -->
     </div>
     <!-- fim background azul -->
-     <!-- resultados -->
-     <section class="resultados">
-        <!-- container-->
-         <div class="container">
-            <!-- resultados texto -->
-            <div class="resultados-text">
-                Alguns números do nosso site
-            </div>
-            <!-- fim do texto resultados -->
-             <div class="resultados-numeros">
-                <p>
-                    <span>+200</span> <br>
-                    Animais Cadastrados 
-                </p>
-                <p>
-                    <span>+100</span> <br>
-                    Animais Encontrados
-                </p>
-             </div>
-         </div>
-        <!-- fim do container -->
-     </section>
 
+    <!-- resultados -->
+    <div class="fundo">''
+        <h1 class="titulo">Encontre seu pet perdido</h1>
 
+        <section id="fotodopet">
 
-     <!--end resultados-->
-     <!--Section diferenciais-->
-     <section class="diferencias">
+        </section>
+        <div style="text-align: center; margin-top: 20px;">
+            <button id="ver-todos-btn" class="botao-ver-todos">Ver todos os pets</button>
+        </div>
+        
+    </div>
+
+    <!--end resultados-->
+    <!--Section diferenciais-->
+    <section class="diferencias">
         <div class="container">
             <div class="card">
                 <img src="img/cao.png" alt="">
@@ -95,30 +85,30 @@
                 </p>
             </div>
 
-        <div class="card">
-            <img src="img/placeholder.png" alt="">
-            <h3 class="titulo">Cuide de quem te ama</h3>
-            <p>
-                Use plaquinha de identificação e mantenha portões bem fechados. Prevenção é tudo.
-            </p>
+            <div class="card">
+                <img src="img/placeholder.png" alt="">
+                <h3 class="titulo">Cuide de quem te ama</h3>
+                <p>
+                    Use plaquinha de identificação e mantenha portões bem fechados. Prevenção é tudo.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <img src="img/pet-house.png" alt="">
+                <h3 class="titulo">Adote, mude uma vida</h3>
+                <p>
+                    Milhares de pets esperam por um lar. Adotar é um ato de amor.
+                </p>
+            </div>
         </div>
+    </section>
+    <!-- fim dos resultados -->
 
 
-        <div class="card">
-            <img src="img/pet-house.png" alt="">
-            <h3 class="titulo">Adote, mude uma vida</h3>
-            <p>
-                Milhares de pets esperam por um lar. Adotar é um ato de amor.
-            </p>
-        </div>
-     </div>
-     </section>
-     <!-- fim dos resultados -->
 
-    
-
-     <!-- sessão "casa"-->
-     <section class="casa">
+    <!-- sessão "casa"-->
+    <section class="casa">
         <div class="container">
             <div class="casa-img">
                 <img src="img/abracando2.PNG" alt="">
@@ -126,14 +116,14 @@
             </div>
             <div class="casa-texto">
                 <h2>Final Feliz: Eles já voltaram para casa!</h2>
-                <p>Esses são alguns usuarios que encontraram seus pets com a ajuda da nossa 
-                    plataforma e da solidariedade de 
-                    pessoas como você. Cada reencontro 
-                    é uma vitória e nos motiva a 
-                    continuar conectando lares com 
+                <p>Esses são alguns usuarios que encontraram seus pets com a ajuda da nossa
+                    plataforma e da solidariedade de
+                    pessoas como você. Cada reencontro
+                    é uma vitória e nos motiva a
+                    continuar conectando lares com
                     seus companheiros de quatro patas.
-                    Continue compartilhando, ajudando 
-                    e acreditando: juntos fazemos a 
+                    Continue compartilhando, ajudando
+                    e acreditando: juntos fazemos a
                     diferença!
                 </p>
                 <!-- <div class="usuario">
@@ -143,55 +133,59 @@
                     <b>+50 Usuários felizes</b>
                 </p>
             </div>-->
-        </div>
-     </section>
-     <!-- fim sessão "casa"-->
-      
-     <section class="newsletter">
-        <div class="container">
-          <div class="box-newsletter">
-            <h2>Fale Conosco!</h2>
-            <p>Precisa de ajuda ou tem alguma dúvida sobre como usar nosso site? Estamos aqui para ouvir você!
-              <br>Envie uma mensagem, compartilhe suas ideias ou apoie nossa missão. Qualquer ajuda faz a diferença!</p>
-            
-              <form id="formContato">
-                <input type="email" name="email" id="email" placeholder="Digite o seu email" required>
-                <input type="text" name="mensagem" id="mensagem" placeholder="Digite sua mensagem" required>
-                <button type="submit">Enviar</button>
-              </form>
-              
-          </div>
-        </div>
-      </section>
-
-      <!-- footer -->
-       <footer>        
-            <div class="container" >
-                <ul>
-                    <h3>PETNALESTE</h3>
-                    <p>Nossas Redes Sociais</p>
-                    <div class="redes-sociais">
-                        <img src="img/facebook (1).png" alt="facebook">
-                        <img src="img/instagram (1).png" alt="instagram">
-                        <img src="img/twitter.png" alt="twitter">
-                        <img src="img/whatsapp.png" alt="whatsapp">
-                    </div>
-                </ul>
-                <ul>
-                    <h3>Contato</h3>
-                    <li>
-                        <p>telefone +55 11 99999-9999</p>
-                    </li>
-                    <li>
-                        <p>petnaleste@petnaleste.com</p>
-                    </li>
-                </ul>
             </div>
-       </footer>
+    </section>
+    <!-- fim sessão "casa"-->
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="box-newsletter">
+                <h2>Fale Conosco!</h2>
+                <p>Precisa de ajuda ou tem alguma dúvida sobre como usar nosso site? Estamos aqui para ouvir você!
+                    <br>Envie uma mensagem, compartilhe suas ideias ou apoie nossa missão. Qualquer ajuda faz a
+                    diferença!
+                </p>
+
+                <form id="formContato">
+                    <input type="email" name="email" id="email" placeholder="Digite o seu email" required>
+                    <input type="text" name="mensagem" id="mensagem" placeholder="Digite sua mensagem" required>
+                    <button type="submit">Enviar</button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <ul>
+                <h3>PETNALESTE</h3>
+                <p>Nossas Redes Sociais</p>
+                <div class="redes-sociais">
+                    <img src="img/facebook (1).png" alt="facebook">
+                    <img src="img/instagram (1).png" alt="instagram">
+                    <img src="img/twitter.png" alt="twitter">
+                    <img src="img/whatsapp.png" alt="whatsapp">
+                </div>
+            </ul>
+            <ul>
+                <h3>Contato</h3>
+                <li>
+                    <p>telefone +55 11 99999-9999</p>
+                </li>
+                <li>
+                    <p>petnaleste@petnaleste.com</p>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 
     <!-- Topo do site -->
     <a href="#inicio" id="topo"><img src="img/topo.png" alt="topo do site"></a>
 </body>
+
 </html>
