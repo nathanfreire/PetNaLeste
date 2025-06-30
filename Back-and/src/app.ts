@@ -22,6 +22,9 @@ app.get("/api/v1/usuario/listar", (req,res)=>{
 app.post("/api/v1/usuario/cadastro", (req,res)=>{
     usu.cadastroUsuario(req,res)
 })
+app.post("/api/v1/usuario/login", (req,res)=>{
+    usu.loginUsuario(req,res)
+})
 // ############### Animal #######################
 app.get("/api/v1/animal/listar", (req,res)=>{
     ani.listarAnimal(req,res)

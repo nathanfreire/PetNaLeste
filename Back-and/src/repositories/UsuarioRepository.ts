@@ -6,8 +6,22 @@ import CommandsUsuario from "../interfaces/CommandsUsuario";
 
 
 export default class UsuarioRepository implements CommandsUsuario <Usuario>{
-    login(usuario: string, senha: string) {
-        throw new Error("Method not implemented.");
+    login(usuario: string, senha: string):Promise <any> {
+        return new Promise((resolve,reject)=>{
+            conexao.query(`SELECT * from Usuario WHERE nome_usuario=?`,
+             [
+                 usuario
+             ], (erro,result:any)=>{
+                 if(erro){
+                     return reject(erro)
+                 }
+                 else{
+                     return resolve(result)
+                 }
+             }
+     
+            )
+         })
     }
     Cadastrar(obj: Usuario): Promise<Usuario> {
         return new Promise((resolve, reject) => {
