@@ -403,10 +403,12 @@ footer .container a{
     margin-bottom: 30px;
     color: #333;
   }
-  .fundo{
+  #fundo{
     background: #fa8607;
   }
-  
+  #mensagem{
+    margin-top: 10px;
+  }
   .card {
     width: 200px;
     background: #fff;
@@ -420,6 +422,7 @@ footer .container a{
   .card:hover {
     transform: scale(1.05);
   }
+
   
   .card-img {
     width: 100%;
