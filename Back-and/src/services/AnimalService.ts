@@ -19,6 +19,8 @@ export default class AnimalService{
             ani.foto = req.body.foto;
             ani.status = req.body.status;
             ani.descricao = req.body.descricao;
+            ani.nome = req.body.nome;
+            
             try {
                 const rs = await this.aniRepository.Cadastrar(ani);
                 return res.status(201).json(rs);

@@ -16,47 +16,27 @@ if (window.localStorage.getItem(usuario_logado)) {
   document.getElementById("usuario").innerHTML = foto_usuario + nome_usuario
 }
 
-function carregar_pet(){
-
-  const pet_foto = document.getElementById("fotodopet")
+function carregar_pet() {
+  const pet_foto = document.getElementById("fotodopet");
   let saida = "";
 
-  /* A função fetch que significa busca, realiza a chamada da URL(recurso) do servidor de backend com o resultado de uma consulta select para exibir todos os livros cadastrados em banco de dados*/
   fetch("http://127.0.0.1:5000/api/v1/animal/listar")
-  .then((res)=>res.json())
-  .then((dados)=>{
+    .then((res) => res.json())
+    .then((dados) => {
+      // Limita a exibição aos 5 primeiros animais
+      dados.slice(0, 4).forEach((pet) => {
+        saida += `<div class="card">
+          <img src="${pet.foto_animal}" alt="Capa" class="card-img"/>
+          <div class="card-info"> 
+            <h3 class="card-name">${pet.nome || "Sem nome"}</h3>
+            <p class="card-location">${pet.sexo}</p>
+          </div>
+        </div>`;
+      });
 
-      /* A função fetch espera o retorno dos dados da chamada da url e, quando retorna dados, este são mapeados, portanto cada um dos livros é passado para a variavel liv e, então realizados a mopntagem de uma saída estruturada dos livros em divs html */
-      dados.map((pet)=>{
-          saida += `<div class="card">
-
-              <img src="${pet.foto_animal}" alt="Capa" class="card-img"/>
-              <div class="card-info"> 
-              <h3 class="card-name">${pet.raca}</h3>
-              <p class="card-location">${pet.sexo}</p>
-
-          
-              </div>
-
-          </div> `
-
-      })
-
-      // Com a saida de divs montada adicionamos a uma div livros que está na tela 
       pet_foto.innerHTML = saida;
-  })
-
+    });
 }
-
-
-
-
-
-
-
-
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   // Formulário contato

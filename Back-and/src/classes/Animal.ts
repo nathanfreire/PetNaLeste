@@ -15,4 +15,5 @@ export default class Animal {
     foto!: string
     status!: string
     descricao!: string
+    nome?: string
 }

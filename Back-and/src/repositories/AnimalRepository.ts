@@ -22,7 +22,7 @@ export default class AnimalRepository implements Commands<Animal>{
                 else{
                     id_end = end.insertId
                 }
-        conexao.query("INSERT INTO Animal (id_usuario,tipo_animal,raca,cor,porte,sexo,data_encontrado,data_perdido,id_endereco,foto_animal,status,descricao) Values (?,?,?,?,?,?,?,?,?,?,?,?)",
+        conexao.query("INSERT INTO Animal (id_usuario,tipo_animal,raca,cor,porte,sexo,data_encontrado,data_perdido,id_endereco,foto_animal,status,descricao,nome) Values (?,?,?,?,?,?,?,?,?,?,?,?,?)",
             [obj.usuario,
             obj.tipo_animal,
             obj.raca,
@@ -34,7 +34,8 @@ export default class AnimalRepository implements Commands<Animal>{
             id_end,
             obj.foto,
             obj.status,
-            obj.descricao
+            obj.descricao,
+            obj.nome
             ],(error,result)=>{
                 if (error) {
                     return reject (error)
