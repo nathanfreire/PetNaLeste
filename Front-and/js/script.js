@@ -1,4 +1,20 @@
+let usuario_logado = "usuario_logado"
 
+if (window.localStorage.getItem(usuario_logado)) {
+
+  let us = window.localStorage.getItem(usuario_logado)
+  //converter a variavel us para json
+  //console.log(us)
+  us = JSON.parse(us)
+
+  let foto_usuario = `<img src=${us.payload.foto_usuario} class="foto_usuario">`;
+  let nome_usuario = `<p class="nome_usuario"> ${us.payload.nome_usuario} </p>`;
+
+
+  document.getElementById("usuario").style.padding="10px";
+
+  document.getElementById("usuario").innerHTML = foto_usuario + nome_usuario
+}
 
 function carregar_pet(){
 
@@ -136,7 +152,7 @@ if (form) {
     }
   });
 });
-let usuario_logado = "usuario_logado"
+
 
 function efetuarlogin(){
   const usuario = document.getElementById("email_login")

@@ -461,3 +461,24 @@ footer .container a{
   .botao-ver-todos:hover {
     background-color: #4a1f7a;
   }
+
+  .foto_usuario{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: flex;
+   
+}
+
+.nome_usuario{
+font-size: 15pt;
+display: flex;
+margin-top: 3px;
+
+}
+#usuario{
+
+    display: flex;
+    justify-content: space-between;
+}
