@@ -279,6 +279,98 @@ footer .container a{
     padding: 0;
 }
 
+#fotodopet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    background: #fa8607
+  }
+
+  .titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+  }
+  #fundo{
+    background: #fa8607;
+  }
+  #mensagem{
+    margin-top: 10px;
+  }
+  .card {
+    width: 200px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;    
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .card-info {
+    padding: 12px;
+  }
+  
+  .card-name {
+    margin: 0;
+    font-size: 18px;
+    color: #5f259f;
+    font-weight: bold;
+  }
+  
+  .card-location {
+    margin: 4px 0 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .botao-ver-todos {
+    padding: 10px 20px;
+    background-color: #5f259f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .botao-ver-todos:hover {
+    background-color: #4a1f7a;
+  }
+
+  .foto_usuario{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: flex;
+   
+}
+
+.nome_usuario{
+font-size: 15pt;
+display: flex;
+margin-top: 3px;
+
+}
+#usuario{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+
 
 /* responsivo */
 @media (max-width: 960px){
@@ -380,6 +472,14 @@ footer .container a{
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* Dois cards por linha com espaçamento */
+    }
+  }
+
+
 @media (max-width:440px){
     .resultados .resultados-numero{
         flex-direction: column;
@@ -390,95 +490,4 @@ footer .container a{
     }
 }
 
-#fotodopet {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    background: #fa8607
-  }
 
-  .titulo {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #333;
-  }
-  #fundo{
-    background: #fa8607;
-  }
-  #mensagem{
-    margin-top: 10px;
-  }
-  .card {
-    width: 200px;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-
-  
-  .card-img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-  
-  .card-info {
-    padding: 12px;
-  }
-  
-  .card-name {
-    margin: 0;
-    font-size: 18px;
-    color: #5f259f;
-    font-weight: bold;
-  }
-  
-  .card-location {
-    margin: 4px 0 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .botao-ver-todos {
-    padding: 10px 20px;
-    background-color: #5f259f;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .botao-ver-todos:hover {
-    background-color: #4a1f7a;
-  }
-
-  .foto_usuario{
-    width: 35px;
-    height: 35px;
-    margin-right: 20px;
-    border-radius: 50%;
-    display: flex;
-   
-}
-
-.nome_usuario{
-font-size: 15pt;
-display: flex;
-margin-top: 3px;
-
-}
-#usuario{
-
-    display: flex;
-    justify-content: space-between;
-}
