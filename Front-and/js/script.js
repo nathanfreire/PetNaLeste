@@ -136,5 +136,33 @@ if (form) {
     }
   });
 });
+let usuario_logado = "usuario_logado"
+
+function efetuarlogin(){
+  const usuario = document.getElementById("email_login")
+  const senha = document.getElementById("senha_login")
+
+  fetch("http://127.0.0.1:5000/api/v1/usuario/login",{
+      method:"POST",
+      headers:{
+          "accept":"application/json",
+          "content-type":"application/json"
+      },
+      body:JSON.stringify({
+          usuario:usuario.value,
+          senha:senha.value
+      })
+      
+  } ).then((rs)=>rs.json())
+  .then((dados)=>{
+      console.log(dados)
+      window.localStorage.setItem(usuario_logado,JSON.stringify(dados))
+      usuario.value = ""
+      senha.value = ""
+      window.location.href = "index.html";
+
+  }).catch((erro)=>console.error(erro))
+}
+
 
 
