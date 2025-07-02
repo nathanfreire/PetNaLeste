@@ -29,7 +29,7 @@ function carregar_pet() {
           <img src="${pet.foto_animal}" alt="Capa" class="card-img"/>
           <div class="card-info"> 
             <h3 class="card-name">${pet.nome || "Sem nome"}</h3>
-            <p class="card-location">${pet.sexo}</p>
+            <p class="card-location">${pet.sexo} | ${pet.status}</p>
           </div>
         </div>`;
       });
