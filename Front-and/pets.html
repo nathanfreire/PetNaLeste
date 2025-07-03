@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/filtros.css">
+    <title>PetNaLeste</title>
+</head>
+<body>
+    <main>
+        <body>
+          <div class="topo">
+            <a href="index.html">
+              <img src="logo.png" alt="Logo" class="logo">
+            </a>
+            <h1>Todos os Pets Cadastrados</h1>
+            
+            <button class="botao-filtro-mobile" onclick="abrirModal()">🔍 Filtrar</button>
+          </div>
+          
+          <div class="filtros-container">
+            <div class="filtros" id="filtrosDesktop">
+              <!-- Filtros padrão -->
+              <div class="grupo-filtro">
+                <strong>Espécie:</strong><br>
+                <label><input type="checkbox" class="filtro-especie" value="cachorro"> Cachorro</label>
+                <label><input type="checkbox" class="filtro-especie" value="gato"> Gato</label>
+                <label><input type="checkbox" class="filtro-especie" value="passaro"> Pássaro</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Status:</strong><br>
+                <label><input type="checkbox" class="filtro-status" value="perdido"> Perdido</label>
+                <label><input type="checkbox" class="filtro-status" value="encontrado"> Encontrado</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Gênero:</strong><br>
+                <label><input type="checkbox" class="filtro-genero" value="macho"> Macho</label>
+                <label><input type="checkbox" class="filtro-genero" value="femea"> Fêmea</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Cor:</strong><br>
+                <input type="text" id="filtro-cor" placeholder="Digite uma cor">
+              </div>
+            </div>
+
+          </div>
+
+                                <!-- Pets -->
+                                <div id="lista-pets" class="pets-container"></div>
+        
+          <!-- Modal Mobile -->
+          <div class="modal-filtros" id="modalFiltros">
+            <div class="modal-conteudo">
+              <h3>Filtros</h3>
+              <!-- Mesmo conteúdo de filtros -->
+              <div class="grupo-filtro">
+                <strong>Espécie:</strong><br>
+                <label><input type="checkbox" class="filtro-especie" value="cachorro"> Cachorro</label>
+                <label><input type="checkbox" class="filtro-especie" value="gato"> Gato</label>
+                <label><input type="checkbox" class="filtro-especie" value="passaro"> Pássaro</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Status:</strong><br>
+                <label><input type="checkbox" class="filtro-status" value="perdido"> Perdido</label>
+                <label><input type="checkbox" class="filtro-status" value="encontrado"> Encontrado</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Gênero:</strong><br>
+                <label><input type="checkbox" class="filtro-genero" value="macho"> Macho</label>
+                <label><input type="checkbox" class="filtro-genero" value="femea"> Fêmea</label>
+              </div>
+        
+              <div class="grupo-filtro">
+                <strong>Cor:</strong><br>
+                <input type="text" id="filtro-cor-modal" placeholder="Digite uma cor">
+              </div>
+        
+              <div class="botoes-modal">
+                <button onclick="fecharModal()">Fechar</button>
+                <button onclick="aplicarFiltros(true)">Aplicar Filtros</button>
+              </div>
+            </div>
+          </div>
+        
+
+
+            <script src="js/filtro.js"></script>
+
+          </body>
+          
+    </main>
+</body>
+</html>

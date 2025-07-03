@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: rgb(0, 178, 209);
+  }
+  
+  .topo {
+    padding: 20px;
+    background: rgb(238, 155, 0);
+    color: white;
+    font-weight: bold;
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+  }
+  
+  h1 {
+    font-size: 34px;
+    margin-top: 10px;
+  }
+  
+  .filtros-container {
+    display: flex;
+    justify-content: left;
+    
+  }
+  
+  .filtros {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 1430px;
+    height: 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grupo-filtro {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .grupo-filtro input[type='text']{
+    height: 20px;
+  }
+  
+  .grupo-filtro label {
+    display: flex;
+    margin: 3px 0;
+  }
+
+  
+  .pets-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 20px 30px ;
+    margin-top: 0; /* sobe os cards */
+  }
+  
+  .pet-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 240px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    box-sizing: border-box;
+    transition: transform 0.2s ease;
+  }
+
+  .pet-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .pet-card:hover {
+    transform: scale(1.02);
+  }
+  
+  /* --- BOTÃO de filtro mobile --- */
+  .botao-filtro-mobile {
+    display: none;
+    margin-bottom: 15px;
+  }
+  
+  /* --- MODAL de filtros no mobile --- */
+  .modal-filtros {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-conteudo {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: left;
+  }
+  
+  .botoes-modal {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .botoes-modal button {
+    margin-left: 10px;
+  }
+  
+  /* --- RESPONSIVO --- */
+  @media (max-width: 600px) {
+    .filtros-container {
+      display: none;
+      flex-direction: column;
+    }
+  
+    .botao-filtro-mobile {
+      display: flex;
+      margin-left: 153px;
+    }
+  
+    .pet-card {
+      width: 100%;
+      max-width: 320px;
+    }
+  
+    .pets-container {
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 40px;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
