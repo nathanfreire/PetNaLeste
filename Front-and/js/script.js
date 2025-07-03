@@ -124,5 +124,3 @@ function efetuarlogin(){
   }).catch((erro)=>console.error(erro))
 }
 
-
-

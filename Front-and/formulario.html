@@ -154,8 +154,8 @@
           <h2>Cadastro do Pet</h2>
           <label for="tipo">Tipo de Animal</label>
           <input type="text" id="tipo" name="tipo" required />
-          <label for="tipo">Nome</label>
-          <input type="text" id="tipo" name="tipo" required />
+          <label for="nomeAnimal">Nome</label>
+          <input type="text" id="nomeAnimal" name="nomeAnimal" required />
           <label for="raca">Raça</label>
           <input type="text" id="raca" name="raca" required />
           <label for="cor">Cor</label>
@@ -298,15 +298,100 @@
       });
     });
 
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      if (validateStep(currentStep)) {
-        alert('Formulário enviado com sucesso!');
-        form.reset();
-        currentStep = 0;
-        showStep(currentStep);
+    form.addEventListener('submit', async e => {
+  e.preventDefault();
+
+  try {
+    // --- Monta objeto usuário ---
+    const usuarioBody = {
+      nome: document.getElementById('usuario').value.trim(),
+      senha: document.getElementById('senha').value.trim(),
+      foto: (document.getElementById('fotosUsuario').files.length > 0) ? document.getElementById('fotosUsuario').files[0].name : "",
+      contato: {
+        telefone_residencial: document.getElementById('telResidencial').value.trim() || "",
+        celular: document.getElementById('telCelular').value.trim(),
+        email: document.getElementById('email').value.trim()
+      },
+      endereco: {
+        tipo_logradouro: document.getElementById('tipoLogradouro').value || "",
+        logradouro: document.getElementById('logradouro').value || "",
+        numero: document.getElementById('numero').value || "",
+        complemento: document.getElementById('complemento').value || "",
+        cep: document.getElementById('cep').value || "",
+        bairro: document.getElementById('bairro').value || ""
       }
+    };
+
+    // --- Envia dados do usuário ---
+    const usuarioRes = await fetch('http://127.0.0.1:5000/api/v1/usuario/cadastro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(usuarioBody)
     });
+
+    if (!usuarioRes.ok) {
+      const errorData = await usuarioRes.json();
+      alert('Erro ao cadastrar usuário: ' + (errorData.message || 'Erro desconhecido'));
+      return;
+    }
+
+    const usuarioData = await usuarioRes.json();
+    const usuarioId = usuarioData.id;  // **Aqui pega o id do usuário cadastrado**
+
+    if (!usuarioId) {
+      alert('Erro: ID do usuário não retornado do servidor.');
+      return;
+    }
+
+    // --- Monta objeto animal usando o id do usuário ---
+    const animalBody = {
+      usuario: usuarioId,
+      tipo_animal: document.getElementById('tipo').value.trim(),
+      nome: document.getElementById('nomeAnimal').value.trim(),
+      raca: document.getElementById('raca').value.trim(),
+      cor: document.getElementById('cor').value.trim(),
+      porte: document.getElementById('porte').value,
+      sexo: document.getElementById('sexo').value === "Macho" ? "M" : "F",
+      data_encontrado: document.getElementById('dataEncontrado').value || null,
+      data_perdido: document.getElementById('dataPerdido').value || null,
+      foto: (document.getElementById('fotosAnimal').files.length > 0) ? document.getElementById('fotosAnimal').files[0].name : "",
+      status: document.getElementById('status').value,
+      descricao: document.getElementById('descricao').value.trim(),
+      endereco: {
+        tipo_logradouro: document.getElementById('tipoLogradouro').value || "",
+        logradouro: document.getElementById('logradouro').value || "",
+        numero: document.getElementById('numero').value || "",
+        complemento: document.getElementById('complemento').value || "",
+        cep: document.getElementById('cep').value || "",
+        bairro: document.getElementById('bairro').value || ""
+      }
+    };
+
+    // --- Envia dados do animal ---
+    const animalRes = await fetch('http://127.0.0.1:5000/api/v1/animal/cadastro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(animalBody)
+    });
+
+    if (!animalRes.ok) {
+      const animalErrorData = await animalRes.json();
+      alert('Erro ao cadastrar animal: ' + (animalErrorData.message || 'Erro desconhecido.'));
+      return;
+    }
+
+    alert('Cadastro realizado com sucesso!');
+    form.reset();
+    currentStep = 0;
+    showStep(currentStep);
+
+  } catch (error) {
+    console.error('Erro ao enviar formulário:', error);
+    alert('Erro inesperado ao enviar formulário.');
+  }
+});
+
+
 
     document.getElementById('cep').addEventListener('blur', function () {
       const cep = this.value.replace(/\D/g, '');

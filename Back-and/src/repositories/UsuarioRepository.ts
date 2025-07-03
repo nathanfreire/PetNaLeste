@@ -3,6 +3,8 @@ import Usuario from "../classes/Usuario";
 import Commands from "../interfaces/Commands";
 import { conexao } from "../database/Config";
 import CommandsUsuario from "../interfaces/CommandsUsuario";
+import { ResultSetHeader } from 'mysql2';
+
 
 
 export default class UsuarioRepository implements CommandsUsuario <Usuario>{
@@ -28,48 +30,67 @@ export default class UsuarioRepository implements CommandsUsuario <Usuario>{
             let id_end: any;
             let id_con: any;
     
-            conexao.query("INSERT INTO Endereco (tipo_logradouro,logradouro,numero,complemento,cep,bairro) VALUES (?,?,?,?,?,?)", [
-                obj.endereco?.tipo_logradouro,
-                obj.endereco?.logradouro,
-                obj.endereco?.numero,
-                obj.endereco?.complemento,
-                obj.endereco?.cep,
-                obj.endereco?.bairro
-            ], (erro, end: any) => {
-                if (erro) {
-                    return reject(erro);
-                } else {
-                    id_end = end.insertId;
-                }
-    
-                conexao.query("INSERT INTO Contato (id_redes,telefone_residencial,telefone_celular,email) VALUES (?,?,?,?)", [
-                    obj.contato.redes,
-                    obj.contato.telefone_residencial,
-                    obj.contato.celular,
-                    obj.contato.email
-                ], (erro, end: any) => {
+            // Inserir Endereço
+            conexao.query(
+                "INSERT INTO Endereco (tipo_logradouro,logradouro,numero,complemento,cep,bairro) VALUES (?,?,?,?,?,?)",
+                [
+                    obj.endereco?.tipo_logradouro,
+                    obj.endereco?.logradouro,
+                    obj.endereco?.numero,
+                    obj.endereco?.complemento,
+                    obj.endereco?.cep,
+                    obj.endereco?.bairro
+                ],
+                (erro, end: any) => {
                     if (erro) {
                         return reject(erro);
                     } else {
-                        id_con = end.insertId;
+                        id_end = end.insertId;
                     }
     
-                    conexao.query("INSERT INTO Usuario (nome_usuario,senha,foto_usuario,id_contato,id_endereco,id_redes) VALUES (?,?,?,?,?,?)", [
-                        obj.nome,
-                        obj.senha,
-                        obj.foto,
-                        id_con,
-                        id_end,
-                        obj.contato.redes
-                    ], (error, result) => {
-                        if (error) {
-                            return reject(error);
-                        } else {
-                            return resolve(obj);
+                    // Extrair id_redes do objeto redes, se existir
+                    const idRedesContato = obj.contato.redes ? obj.contato.redes.id : null;
+    
+                    // Inserir Contato
+                    conexao.query(
+                        "INSERT INTO Contato (id_redes,telefone_residencial,telefone_celular,email) VALUES (?,?,?,?)",
+                        [
+                            idRedesContato,
+                            obj.contato.telefone_residencial,
+                            obj.contato.celular,
+                            obj.contato.email
+                        ],
+                        (erro, con: any) => {
+                            if (erro) {
+                                return reject(erro);
+                            } else {
+                                id_con = con.insertId;
+                            }
+    
+                            // Inserir Usuario
+                            conexao.query(
+                                "INSERT INTO Usuario (nome_usuario,senha,foto_usuario,id_contato,id_endereco,id_redes) VALUES (?,?,?,?,?,?)",
+                                [
+                                    obj.nome,
+                                    obj.senha,
+                                    obj.foto,
+                                    id_con,
+                                    id_end,
+                                    idRedesContato
+                                ],
+                                (error, result: ResultSetHeader) => {
+                                    if (error) {
+                                        return reject(error);
+                                    } else {
+                                        obj.id = result.insertId; // agora o TypeScript sabe que insertId existe
+                                        return resolve(obj);
+                                    }
+                                }
+                            );
                         }
-                    });
-                });
-            });
+                    );
+                }
+            );
         });
     }
     

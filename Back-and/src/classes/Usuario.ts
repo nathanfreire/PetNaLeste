@@ -3,7 +3,7 @@ import Endereco from "./Endereco"
 import Redes from "./RedesSociais"
 
 export default class Usuario {
-    id!: number
+    id?: number
     nome!: string
     senha!:string
     foto?:string
