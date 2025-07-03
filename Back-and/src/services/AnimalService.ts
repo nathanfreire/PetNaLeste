@@ -38,4 +38,17 @@ export default class AnimalService{
             return res.status(500).json(error)
         }
     }
+
+    async ListarAnimalPorId(req:Request, res:Response){
+        let id = req.params.id;
+        
+        try{
+            const rs = await this.aniRepository.ListarPorId(parseInt(id));
+            return res.status(200).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }
+    }
+    
 }

@@ -38,4 +38,8 @@ app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)}
 app.listen(5000, '0.0.0.0', () => {
     console.log('Online na porta 5000 (acesse de qualquer IP)');
 });
+
+app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
+    ani.ListarAnimalPorId(req,res);
+})
   
