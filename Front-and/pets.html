@@ -6,12 +6,12 @@
     <link rel="stylesheet" href="css/filtros.css">
     <title>PetNaLeste</title>
 </head>
-<body>
+<body onload="carregarPets(); renderPets();">
     <main>
         <body>
           <div class="topo">
             <a href="index.html">
-              <img src="logo.png" alt="Logo" class="logo">
+              <img src="img/logo2.png" alt="Logo" class="logo">
             </a>
             <h1>Todos os Pets Cadastrados</h1>
             
@@ -30,7 +30,7 @@
         
               <div class="grupo-filtro">
                 <strong>Status:</strong><br>
-                <label><input type="checkbox" class="filtro-status" value="perdido"> Perdido</label>
+                <label><input type="checkbox" class="filtro-status" value="desaparecido"> Desaparecido</label>
                 <label><input type="checkbox" class="filtro-status" value="encontrado"> Encontrado</label>
               </div>
         
@@ -50,6 +50,7 @@
 
                                 <!-- Pets -->
                                 <div id="lista-pets" class="pets-container"></div>
+                                <div id="fotodopet"></div>
         
           <!-- Modal Mobile -->
           <div class="modal-filtros" id="modalFiltros">
@@ -65,7 +66,7 @@
         
               <div class="grupo-filtro">
                 <strong>Status:</strong><br>
-                <label><input type="checkbox" class="filtro-status" value="perdido"> Perdido</label>
+                <label><input type="checkbox" class="filtro-status" value="desaparecido"> Desaparecido</label>
                 <label><input type="checkbox" class="filtro-status" value="encontrado"> Encontrado</label>
               </div>
         
