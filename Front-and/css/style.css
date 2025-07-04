@@ -63,6 +63,11 @@ nav{
     color: rgb(228, 91, 0) !important
 }
 
+.logo2 {
+    width: 100px;
+    height: auto;
+}
+
 .ul{
     display: flex;
     align-items: center;

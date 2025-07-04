@@ -1,51 +1,41 @@
-const pets = [
-    {
-      nome: "Arcor",
-      especie: "gato",
-      status: "perdido",
-      genero: "macho",
-      cor: "preto",
-      imagem: "https://static.wixstatic.com/media/a80dc2_2a25fc56961e48cca2bb43a0fab1fd9f~mv2.jpg/v1/fill/w_640,h_720,al_t,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a80dc2_2a25fc56961e48cca2bb43a0fab1fd9f~mv2.jpg"
-    },
-    {
-      nome: "Luzinha",
-      especie: "gato",
-      status: "perdido",
-      genero: "femea",
-      cor: "cinza",
-      imagem: "https://placekitten.com/301/200"
-    },
-    {
-      nome: "Desconhecido",
-      especie: "gato",
-      status: "encontrado",
-      genero: "macho",
-      cor: "branco",
-      imagem: "https://placekitten.com/302/200"
-    },   
-    
-  ];
-  
-  function renderPets(petsFiltrados) {
-    const container = document.getElementById("lista-pets");
-    container.innerHTML = "";
-  
-    petsFiltrados.forEach(pet => {
-      const card = document.createElement("div");
-      card.className = "pet-card";
-      card.innerHTML = `
-        <img src="${pet.imagem}" alt="Imagem de ${pet.nome}" class="pet-img">
-        <strong>${pet.nome}</strong><br>
-        Espécie: ${pet.especie}<br>
-        Status: ${pet.status}<br>
-        Gênero: ${pet.genero}<br>
-        Cor: ${pet.cor}
-      `;
-      container.appendChild(card);
+let pets = []; // variável global
+
+function renderPets(petsFiltrados = []) {
+  const container = document.getElementById("fotodopet");
+  let saida = `<div class="pets-container">`;
+
+  petsFiltrados.forEach((pet) => {
+    saida += `
+      <div class="pet-card">
+        <img src="${pet.foto_animal}" alt="Imagem de ${pet.nome || 'Sem nome'}" class="pet-img">
+        <div class="card-info"> 
+          <h3 class="card-name">${pet.nome || "Sem nome"}</h3>
+          <p class="card-location">${pet.sexo || 'Desconhecido'} | ${pet.status || 'Desconhecido'} | ${pet.tipo_animal || 'Desconhecido'} </p>
+        </div>
+      </div>
+    `;
+  });
+
+  saida += `</div>`;
+  container.innerHTML = saida;
+}
+
+function carregarPets() {
+  fetch("http://127.0.0.1:5000/api/v1/animal/listar")
+    .then((res) => res.json())
+    .then((dados) => {
+      pets = dados || []; // garante array mesmo que dados seja null ou undefined
+      renderPets(pets);
+    })
+    .catch((err) => {
+      console.error("Erro ao carregar pets:", err);
+      renderPets([]); // limpa a lista em caso de erro
     });
-  }
-  
-  
+}
+
+// Chama a função para carregar os pets ao carregar a página
+window.onload = carregarPets;
+
 
 function aplicarFiltros(fromModal = false) {
   const especieCheckboxes = document.querySelectorAll(".filtro-especie:checked");
@@ -56,22 +46,24 @@ function aplicarFiltros(fromModal = false) {
     ? document.getElementById("filtro-cor-modal").value.toLowerCase()
     : document.getElementById("filtro-cor").value.toLowerCase();
 
-  const especies = Array.from(especieCheckboxes).map(cb => cb.value);
-  const status = Array.from(statusCheckboxes).map(cb => cb.value);
-  const generos = Array.from(generoCheckboxes).map(cb => cb.value);
+    const especies = Array.from(especieCheckboxes).map(cb => cb.value.toLowerCase());
+    const status = Array.from(statusCheckboxes).map(cb => cb.value.toLowerCase());
+    const generos = Array.from(generoCheckboxes).map(cb => cb.value.toLowerCase());
+    
 
   const filtrados = pets.filter(pet => {
-    const especieOk = especies.length === 0 || especies.includes(pet.especie);
-    const statusOk = status.length === 0 || status.includes(pet.status);
-    const generoOk = generos.length === 0 || generos.includes(pet.genero);
-    const corOk = !corInput || pet.cor.toLowerCase().includes(corInput);
-
+    const especieOk = especies.length === 0 || especies.includes(pet.tipo_animal?.toLowerCase());
+    const statusOk = status.length === 0 || status.includes(pet.status?.toLowerCase());
+    const generoOk = generos.length === 0 || generos.includes(pet.sexo?.toLowerCase());
+    const corOk = !corInput || pet.cor?.toLowerCase().includes(corInput);
+  
     return especieOk && statusOk && generoOk && corOk;
   });
 
   renderPets(filtrados);
-  fecharModal(); // fecha o modal após aplicar
+  fecharModal(); // opcional: se estiver usando um modal
 }
+
 
 function abrirModal() {
   document.getElementById("modalFiltros").style.display = "flex";
