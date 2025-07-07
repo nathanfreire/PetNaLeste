@@ -1,8 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: rgb(0, 178, 209);
+   
+  }
+
 .container_carregar {
     width: 90%;
     max-width: 1000px;
     margin: 40px auto;
-    background-color: #fff;
+    background-color: #681414;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 8px;
     padding: 20px;
@@ -20,10 +29,12 @@
     border-radius: 10px;
     margin-bottom: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-top: 8px;
 }
 
 #div_miniatura {
     display: flex;
+    justify-content: space-between;
     gap: 10px;
     margin-bottom: 20px;
 }
@@ -43,15 +54,38 @@
 
 #div_titulo_descricao {
     text-align: center;
+    
 }
 
 #div_titulo_descricao h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #5d2d91;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Nunito", sans-serif;
+}
+.botao-voltar{
+    text-decoration: none;
+    color: white;
 }
 
 #div_titulo_descricao p {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    
+}
+h1{
+    font-size: 20pt;
+    color: white;
+    font-family: "Nunito", sans-serif;
+    
+}
+#animais{
+    display: flex; 
+    justify-content: space-around; 
+    background-color:rgb(228, 91, 0) ;
+    border: 3px solid rgb(228, 91, 0);
+    border-radius: 5px;
+    
 }

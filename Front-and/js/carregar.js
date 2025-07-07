@@ -37,7 +37,7 @@ function carregar_animal() {
             let img_miniatura1 = document.createElement("img");
             let img_miniatura2 = document.createElement("img");
             let img_miniatura3 = document.createElement("img");
-            img_miniatura1.src = dt[0].foto1;
+            img_miniatura1.src = dt[0].foto_animal;
             img_miniatura2.src = dt[0].foto2;
             img_miniatura3.src = dt[0].foto3;
 
@@ -46,7 +46,7 @@ function carregar_animal() {
             div_miniatura.appendChild(img_miniatura2);
             div_miniatura.appendChild(img_miniatura3);
 
-            img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto1);
+            img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto_animal);
             img_miniatura2.addEventListener("click", () => img_capa.src = dt[0].foto2);
             img_miniatura3.addEventListener("click", () => img_capa.src = dt[0].foto3);
 
