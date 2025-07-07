@@ -2,9 +2,15 @@
 
 function carregar_animal() {
 
+
+
     let idpet = window.location.search.split('=');
 
-    idpet = dt.id_animal;
+    idpet = idpet[1]
+
+    console.log(idpet)
+
+
     const div_animal = document.getElementById("animais");
     fetch(`http://127.0.0.1:5000/api/v1/animal/listarporid/${idpet}`)
         .then((res) => res.json())

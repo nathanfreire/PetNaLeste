@@ -32,6 +32,11 @@ app.get("/api/v1/animal/listar", (req,res)=>{
 app.post("/api/v1/animal/cadastro", (req,res)=>{
     ani.cadastrarAnimal(req,res)
 })
+
+app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
+    ani.ListarAnimalPorId(req,res);
+})
+
 // Rota enviar email
 app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)});
 
