@@ -3,13 +3,23 @@
 function carregar_animal() {
 
     let idpet = window.location.search.split('=');
+<<<<<<< HEAD
     idpet = idpet[1];
 
+=======
+
+    idpet = dt.id_animal;
+>>>>>>> 9a0624e783b6ac1f658c24af3b743a17130c4949
     const div_animal = document.getElementById("animais");
     fetch(`http://127.0.0.1:5000/api/v1/animal/listarporid/${idpet}`)
         .then((res) => res.json())
         .then((dt) => {
+<<<<<<< HEAD
             console.log(dt);
+=======
+            console.log(dt)
+            
+>>>>>>> 9a0624e783b6ac1f658c24af3b743a17130c4949
             let div_img = document.createElement("div");
             div_img.setAttribute("id", "div_img");
             let div_capa = document.createElement("div");
@@ -39,6 +49,13 @@ function carregar_animal() {
             div_miniatura.appendChild(img_miniatura2);
             div_miniatura.appendChild(img_miniatura3);
 
+<<<<<<< HEAD
+=======
+            img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto1);
+            img_miniatura2.addEventListener("click", () => img_capa.src = dt[0].foto2);
+            img_miniatura3.addEventListener("click", () => img_capa.src = dt[0].foto3);
+
+>>>>>>> 9a0624e783b6ac1f658c24af3b743a17130c4949
             //Colocar a div miniatura dentro da div imagem
             div_img.appendChild(div_miniatura);
 
@@ -64,9 +81,13 @@ function carregar_animal() {
 
 }
 
+<<<<<<< HEAD
 img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto1);
 img_miniatura2.addEventListener("click", () => img_capa.src = dt[0].foto2);
 img_miniatura3.addEventListener("click", () => img_capa.src = dt[0].foto3);
+=======
+
+>>>>>>> 9a0624e783b6ac1f658c24af3b743a17130c4949
 
 
 //-------- FIM - codigo front, carregar animais --------//
