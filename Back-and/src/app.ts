@@ -61,4 +61,12 @@ app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)}
 app.listen(5000, '0.0.0.0', () => {
     console.log('Online na porta 5000 (acesse de qualquer IP)');
 });
+<<<<<<< HEAD
+
+app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
+    ani.ListarAnimalPorId(req,res);
+})
   
+=======
+  
+>>>>>>> 99e8d07ea5d911a9185c4e0b186616736f0043c4
