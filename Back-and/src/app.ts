@@ -5,6 +5,7 @@ import cors from "cors"
 import UsuarioService from "./services/UsuarioService"
 import AnimalService from "./services/AnimalService"
 import EnviarEmailController from "./controllers/EnviarEmailController"
+import RedeSocialService from './services/RedeSocialService';
 
 
 const app = express()
@@ -13,6 +14,7 @@ app.use(cors())
 
 const usu = new UsuarioService()
 const ani = new AnimalService()
+const rede = new RedeSocialService()
 const enviarEmailController = new EnviarEmailController();
 
 // ################## Usuario ####################
@@ -31,6 +33,13 @@ app.get("/api/v1/animal/listar", (req,res)=>{
 })
 app.post("/api/v1/animal/cadastro", (req,res)=>{
     ani.cadastrarAnimal(req,res)
+})
+// ############### RedeSocial ##################
+app.get("/api/v1/redesocial/listar", (req,res)=>{
+    rede.ListarRedeSocial(req,res)
+})
+app.post("/api/v1/redesocial/cadastro", (req,res)=>{
+    rede.cadastrarRedeSocial(req,res)
 })
 // Rota enviar email
 app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)});
