@@ -56,6 +56,7 @@ function carregar_animal() {
             //Colocar a div de imagens dentro da div animais
             div_animal.appendChild(div_img)
 
+
             let div_titulo_descricao = document.createElement("div");
             div_titulo_descricao.setAttribute("id", "div_titulo_descricao");
 
@@ -65,17 +66,42 @@ function carregar_animal() {
             let p_descricao = document.createElement("p");
             p_descricao.innerHTML = dt[0].descricao;
 
+            let raca = document.createElement("p");
+            raca.innerHTML = dt[0].raca;
+
+            let cor = document.createElement("p");
+            cor.innerHTML = dt[0].cor;
+
+            let porte = document.createElement("p");
+            porte.innerHTML = dt[0].porte;
+
+            let sexo = document.createElement("p");
+            sexo.innerHTML = dt[0].sexo;
+
+            let data_encontrado = document.createElement("p");
+            data_encontrado.innerHTML = dt[0].data_encontrado;
+
+            let data_perdido = document.createElement("p");
+            data_perdido.innerHTML = dt[0].data_perdido;
+
+            let status = document.createElement("p");
+            status.innerHTML = dt[0].status;
+
             //adicionar o titulo e a descricao dentro da div titulo descricao
             div_titulo_descricao.appendChild(h3_titulo);
             div_titulo_descricao.appendChild(p_descricao);
+            div_titulo_descricao.appendChild(raca);
+            div_titulo_descricao.appendChild(cor);
+            div_titulo_descricao.appendChild(porte);
+            div_titulo_descricao.appendChild(sexo);
+            div_titulo_descricao.appendChild(data_encontrado);
+            div_titulo_descricao.appendChild(data_perdido);
+            div_titulo_descricao.appendChild(status);
 
             div_animal.appendChild(div_titulo_descricao);
-
         })
 
 }
-
-
 
 
 //-------- FIM - codigo front, carregar animais --------//

@@ -10,6 +10,7 @@ import EnviarEmailController from "./controllers/EnviarEmailController"
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use("/fotos",express.static("/fotos"))
 
 const usu = new UsuarioService()
 const ani = new AnimalService()
