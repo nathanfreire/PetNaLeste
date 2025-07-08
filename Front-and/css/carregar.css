@@ -1,91 +1,174 @@
+/* ===== BODY & GERAL ===== */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background: rgb(0, 178, 209);
-   
+    background: rgb(0, 178, 209); /* Fundo claro e elegante */
   }
-
-.container_carregar {
-    width: 90%;
-    max-width: 1000px;
-    margin: 40px auto;
-    background-color: #681414;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    padding: 20px;
-}
-
-#div_img {
+  
+  /* ===== HEADER ===== */
+  header {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-#div_capa img {
-    width: 300px;
+    padding: 20px;
+  }
+  
+  .logo {
+    width: 180px;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    margin-top: 8px;
-}
-
-#div_miniatura {
+  }
+  
+  h1 {
+    font-size: 24pt;
+    color:white;
+    font-family: "Nunito", sans-serif;
+  }
+  
+  /* ===== CONTAINER DO PET ===== */
+  .pet-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    align-items: center;
+    margin-top: auto;
+  }
+  
+  /* ===== IMAGENS ===== */
+  .pet-images {
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .pet-images .capa img {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-bottom: 20px;
-}
-
-#div_miniatura img {
+  }
+  
+  .miniaturas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .miniaturas img {
     width: 80px;
     height: 80px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-#div_miniatura img:hover {
+    transition: transform 0.2s;
+  }
+  
+  .miniaturas img:hover {
     transform: scale(1.1);
-}
-
-#div_titulo_descricao {
+  }
+  
+  /* ===== INFORMAÇÕES ===== */
+  .pet-info {
+    text-align: left;
+  }
+  
+  .pet-info h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #111;
+  }
+  
+  .pet-info p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 4px 0;
+  }
+  
+  .pet-info strong {
+    color: #007b9e;
+  }
+  
+  /* ===== BOTÃO VOLTAR ===== */
+  .voltar-wrapper {
     text-align: center;
-    
-}
-
-#div_titulo_descricao h3 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: white;
-    font-family: "Nunito", sans-serif;
-}
-.botao-voltar{
+    margin-top: 30px;
+  }
+  
+  .botao-voltar {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #00b2d1;
+    color: #fff;
+    border-radius: 6px;
     text-decoration: none;
-    color: white;
-}
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  
+  .botao-voltar:hover {
+    background: #008fa5;
+  }
+  
+  /* ===== RESPONSIVIDADE ===== */
+  @media (max-width: 768px) {
+    .pet-container {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+  
+    .pet-info {
+      text-align: center;
+    }
+  
+    .pet-info p {
+      text-align: center;
+    }
+  
+    .pet-images .capa img {
+      height: 250px;
+      width: 100px; 
+      max-width: 300px;
+    }
+  }
 
-#div_titulo_descricao p {
-    font-size: 15px;
-    line-height: 1.5;
-    color: white;
-    font-family: "Nunito", sans-serif;
-    
-}
-h1{
-    font-size: 20pt;
-    color: white;
-    font-family: "Nunito", sans-serif;
-    
-}
-#animais{
-    display: flex; 
-    justify-content: space-around; 
-    background-color:rgb(228, 91, 0) ;
-    border: 3px solid rgb(228, 91, 0);
-    border-radius: 5px;
-    
-}
+  @media (max-width: 600px) {
+    .pet-container {
+      grid-template-columns: 1fr;
+      padding: 15px;
+      gap: 20px;
+    }
+  
+    .pet-images .capa img {
+      height: auto;
+      max-height: 250px;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .miniaturas img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    h1 {
+      font-size: 20pt;
+    }
+  
+    .botao-voltar {
+      width: 80%;
+      font-size: 16px;
+    }
+  }
+  

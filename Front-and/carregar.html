@@ -15,11 +15,22 @@
     </header>
 
     <main>
-        <div id="animais"></div>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="pets.html" class="botao-voltar">⬅ Voltar à lista</a>
+        <div class="pet-container">  <!-- nova wrapper -->
+          <div class="pet-images">
+            <div class="miniaturas" id="div_miniatura">
+              <!-- thumbnails geradas pelo JS -->
+            </div>
+          </div>
+          <div class="pet-info" id="div_titulo_descricao">
+            <!-- título, descrição e demais dados gerados pelo JS -->
+          </div>
         </div>
-    </main>
+      
+        <div class="voltar-wrapper">
+          <a href="pets.html" class="botao-voltar">⬅ Voltar à lista</a>
+        </div>
+      </main>
+      
 
     <script src="js/carregar.js"></script>
 </body>

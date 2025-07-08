@@ -76,7 +76,7 @@ function renderPets(petsFiltrados = []) {
 
   petsFiltrados.forEach((pet) => {
     saida += `
-    <a href="carregar.html?idpet=${pet.id_animal}">
+    <a class="gay" href="carregar.html?idpet=${pet.id_animal}">
       <div class="pet-card" onclick="carregar_animal()">
         <img src="${pet.foto_animal}" alt="Imagem de ${pet.nome || 'Sem nome'}" class="pet-img">
         <div class="card-info"> 

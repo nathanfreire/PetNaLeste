@@ -135,6 +135,13 @@ body {
     margin-left: 10px;
   }
   
+
+  .gay {
+    text-decoration: none;
+    color: black
+}
+
+
   /* --- RESPONSIVO --- */
   @media (min-width: 960px) and (max-width: 1025px) {
     .filtros-container {
