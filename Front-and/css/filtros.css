@@ -136,7 +136,7 @@ body {
   }
   
   /* --- RESPONSIVO --- */
-  @media (max-width: 600px) {
+  @media (min-width: 960px) and (max-width: 1025px) {
     .filtros-container {
       display: none;
       flex-direction: column;
@@ -144,22 +144,65 @@ body {
   
     .botao-filtro-mobile {
       display: flex;
-      margin-left: 153px;
-    }
+      margin-left: auto;
+      margin-right: auto;
+    }    
   
+      
+    .pets-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      padding: 20px;
+    }
+
     .pet-card {
       width: 100%;
       max-width: 320px;
     }
+
+  
+    h1 {
+      font-size: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .filtros-container {
+      display: none;
+      flex-direction: column;
+    }
+    
+    .botao-filtro-mobile {
+      display: flex;
+      margin: auto;
+    }    
   
     .pets-container {
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      padding: 20px;
+    }
+
+    .pet-card {
+      width: 100%;
+      max-width: 320px;
     }
   
     h1 {
       font-size: 20px;
     }
   }
-  
+
+
+  @media (max-width: 400px) {
+    .pets-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* força 2 colunas */
+      gap: 20px;
+      padding: 20px;
+    }
+  }

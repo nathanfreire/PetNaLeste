@@ -11,6 +11,7 @@ import RedeSocialService from './services/RedeSocialService';
 const app = express()
 app.use(express.json())
 app.use(cors())
+app.use("/fotos",express.static("/fotos"))
 
 const usu = new UsuarioService()
 const ani = new AnimalService()
@@ -34,6 +35,7 @@ app.get("/api/v1/animal/listar", (req,res)=>{
 app.post("/api/v1/animal/cadastro", (req,res)=>{
     ani.cadastrarAnimal(req,res)
 })
+
 // ############### RedeSocial ##################
 app.get("/api/v1/redesocial/listar", (req,res)=>{
     rede.ListarRedeSocial(req,res)
@@ -41,6 +43,12 @@ app.get("/api/v1/redesocial/listar", (req,res)=>{
 app.post("/api/v1/redesocial/cadastro", (req,res)=>{
     rede.cadastrarRedeSocial(req,res)
 })
+//=======
+
+app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
+    ani.ListarAnimalPorId(req,res);
+})
+
 // Rota enviar email
 app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)});
 

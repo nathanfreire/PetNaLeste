@@ -56,6 +56,20 @@ export default class AnimalRepository implements Commands<Animal>{
         })
        })
     }
+
+    ListarPorId(id:number): Promise<Animal[]> {
+        return new Promise((resolve,reject)=>{
+            conexao.query(`Select * from Animal Where id_animal=${id}`,(erro, result)=>{
+                if(erro){
+                    return reject(erro)
+                }
+                else{
+                    return resolve(result as Animal[])
+                }
+            })
+        })
+    }
+    
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");
     }
