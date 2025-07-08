@@ -6,6 +6,7 @@ import UsuarioService from "./services/UsuarioService"
 import AnimalService from "./services/AnimalService"
 import EnviarEmailController from "./controllers/EnviarEmailController"
 import RedeSocialService from './services/RedeSocialService';
+import EnderecoService from './services/EnderecoService';
 
 
 const app = express()
@@ -16,6 +17,7 @@ app.use("/fotos",express.static("/fotos"))
 const usu = new UsuarioService()
 const ani = new AnimalService()
 const rede = new RedeSocialService()
+const end = new EnderecoService()
 const enviarEmailController = new EnviarEmailController();
 
 // ################## Usuario ####################
@@ -47,6 +49,10 @@ app.post("/api/v1/redesocial/cadastro", (req,res)=>{
 
 app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
     ani.ListarAnimalPorId(req,res);
+})
+//################## Endereco #################
+app.get("/api/v1/endereco/listarporid/:id",(req,res)=>{
+    end.ListarEnderecoPorId(req,res);
 })
 
 // Rota enviar email

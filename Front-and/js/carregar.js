@@ -14,9 +14,19 @@ function carregar_animal() {
   
     fetch(`http://127.0.0.1:5000/api/v1/animal/listarporid/${idpet}`)
       .then((res) => res.json())
-      .then((dt) => {
-        const pet = dt[0];
-  
+      .then(async (dt) => {
+          
+
+        let pet = dt[0];
+        let enderecoPet
+       await fetch(`http://127.0.0.1:5000/api/v1/endereco/listarporid/${pet.id_endereco}`)
+        .then((res) => res.json())
+        .then((end) => {
+         enderecoPet = end [0]
+         console.log (enderecoPet)
+        })
+        
+        console.log (enderecoPet)
         // === IMAGEM PRINCIPAL ===
         const capa = document.createElement("div");
         capa.className = "capa";
@@ -76,7 +86,29 @@ function carregar_animal() {
   
         const pStatus = document.createElement("p");
         pStatus.innerHTML = `<strong>Status:</strong> ${pet.status}`;
+
+        const bairro = document.createElement("p");
+        bairro.innerHTML = `<strong>Bairro:</strong> ${enderecoPet.bairro}`;
+
+        const cep = document.createElement("p");
+        cep.innerHTML = `<strong>CEP:</strong> ${enderecoPet.cep}`;
+
+        const complemento = document.createElement("p");
+        complemento.innerHTML = `<strong>Complemento:</strong> ${enderecoPet.complemento}`;
+
+        const idEndereco = document.createElement("p");
+        idEndereco.innerHTML = `<strong>ID do Endereço:</strong> ${enderecoPet.id_endereco}`;
+
+        const logradouro = document.createElement("p");
+        logradouro.innerHTML = `<strong>Logradouro:</strong> ${enderecoPet.logradouro}`;
+
+        const numero = document.createElement("p");
+        numero.innerHTML = `<strong>Número:</strong> ${enderecoPet.numero}`;
+
+        const tipoLogradouro = document.createElement("p");
+        tipoLogradouro.innerHTML = `<strong>Tipo do Logradouro:</strong> ${enderecoPet.tipo_logradouro}`;
   
+        
         div_info.appendChild(h3);
         div_info.appendChild(pDescricao);
         div_info.appendChild(pRaca);
@@ -86,6 +118,13 @@ function carregar_animal() {
         div_info.appendChild(pEncontrado);
         div_info.appendChild(pPerdido);
         div_info.appendChild(pStatus);
+        div_info.appendChild(bairro);
+        div_info.appendChild(cep);
+        div_info.appendChild(complemento);
+        div_info.appendChild(idEndereco);
+        div_info.appendChild(logradouro);
+        div_info.appendChild(numero);
+        div_info.appendChild(tipoLogradouro);
       })
       .catch((erro) => {
         console.error("Erro ao carregar pet:", erro);
