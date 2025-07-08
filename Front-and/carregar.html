@@ -15,20 +15,31 @@
     <title>Detalhes do Pet</title>
     <link rel="stylesheet" href="css/carregar.css"> <!-- opcional -->
 </head>
-<body onload="carregar_animal()">
+<body onload="carregar_animal() ">
     <header>
         <a href="index.html">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="img/logo2.png" alt="Logo" class="logo">
         </a>
         <h1>Detalhes do Pet</h1>
     </header>
 
     <main>
-        <div id="animais"></div>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="pets.html" class="botao-voltar">⬅ Voltar à lista</a>
+        <div class="pet-container">  <!-- nova wrapper -->
+          <div class="pet-images">
+            <div class="miniaturas" id="div_miniatura">
+              <!-- thumbnails geradas pelo JS -->
+            </div>
+          </div>
+          <div class="pet-info" id="div_titulo_descricao">
+            <!-- título, descrição e demais dados gerados pelo JS -->
+          </div>
         </div>
-    </main>
+      
+        <div class="voltar-wrapper">
+          <a href="pets.html" class="botao-voltar">⬅ Voltar à lista</a>
+        </div>
+      </main>
+      
 
 >>>>>>> 9a0624e783b6ac1f658c24af3b743a17130c4949
     <script src="js/carregar.js"></script>

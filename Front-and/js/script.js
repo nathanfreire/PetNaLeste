@@ -18,16 +18,21 @@ if (window.localStorage.getItem(usuario_logado)) {
 
 function carregar_animal() {
 
-  window.location.href="carregar.html"
+
 
   let idpet = window.location.search.split('=');
-  idpet = idpet[1];
+
+  idpet = idpet[1]
+
+  console.log(idpet)
+
 
   const div_animal = document.getElementById("animais");
   fetch(`http://127.0.0.1:5000/api/v1/animal/listarporid/${idpet}`)
       .then((res) => res.json())
       .then((dt) => {
-          console.log(dt);
+          console.log(dt)
+          
           let div_img = document.createElement("div");
           div_img.setAttribute("id", "div_img");
           let div_capa = document.createElement("div");
@@ -48,7 +53,7 @@ function carregar_animal() {
           let img_miniatura1 = document.createElement("img");
           let img_miniatura2 = document.createElement("img");
           let img_miniatura3 = document.createElement("img");
-          img_miniatura1.src = dt[0].foto1;
+          img_miniatura1.src = dt[0].foto_animal;
           img_miniatura2.src = dt[0].foto2;
           img_miniatura3.src = dt[0].foto3;
 
@@ -57,7 +62,7 @@ function carregar_animal() {
           div_miniatura.appendChild(img_miniatura2);
           div_miniatura.appendChild(img_miniatura3);
 
-          img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto1);
+          img_miniatura1.addEventListener("click", () => img_capa.src = dt[0].foto_animal);
           img_miniatura2.addEventListener("click", () => img_capa.src = dt[0].foto2);
           img_miniatura3.addEventListener("click", () => img_capa.src = dt[0].foto3);
 
@@ -95,13 +100,17 @@ function carregar_pet() {
     .then((dados) => {
       // Limita a exibição aos 5 primeiros animais
       dados.slice(0, 4).forEach((pet) => {
-        saida += `<div class="card" onclick="carregar_animal()">
+        saida += `
+        <a href="carregar.html?idpet=${pet.id_animal}">
+        <div class="card" onclick="carregar_animal()">
           <img src="${pet.foto_animal}" alt="Capa" class="card-img"/>
           <div class="card-info"> 
             <h3 class="card-name">${pet.nome || "Sem nome"}</h3>
             <p class="card-location">${pet.sexo} | ${pet.status}</p>
           </div>
-        </div>`;
+        </div>
+        </a>
+        `;
       });
 
       pet_foto.innerHTML = saida;
