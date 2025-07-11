@@ -104,26 +104,69 @@ function carregar_animal() {
 
       const tipoLogradouro = document.createElement("p");
       tipoLogradouro.innerHTML = `<strong>Tipo do Logradouro:</strong> ${enderecoPet.tipo_logradouro}`;
-
       
-      div_info.appendChild(h3);
-      div_info.appendChild(pDescricao);
-      div_info.appendChild(pRaca);
-      div_info.appendChild(pCor);
-      div_info.appendChild(pPorte);
-      div_info.appendChild(pSexo);
-      div_info.appendChild(pEncontrado);
-      div_info.appendChild(pPerdido);
-      div_info.appendChild(pStatus);
-      div_info.appendChild(bairro);
-      div_info.appendChild(cep);
-      div_info.appendChild(complemento);
-      div_info.appendChild(logradouro);
-      div_info.appendChild(numero);
-      div_info.appendChild(tipoLogradouro);
-    })
-    .catch((erro) => {
-      console.error("Erro ao carregar pet:", erro);
-    });
+      const infoContainer = document.createElement("div");
+      infoContainer.className = "dados-pet";
+      
+      infoContainer.appendChild(h3);
+      infoContainer.appendChild(pDescricao);
+      infoContainer.appendChild(pRaca);
+      infoContainer.appendChild(pCor);
+      infoContainer.appendChild(pPorte);
+      infoContainer.appendChild(pSexo);
+      infoContainer.appendChild(pEncontrado);
+      infoContainer.appendChild(pPerdido);
+      infoContainer.appendChild(pStatus);
+      infoContainer.appendChild(bairro);
+      infoContainer.appendChild(cep);
+      infoContainer.appendChild(complemento);
+      infoContainer.appendChild(logradouro);
+      infoContainer.appendChild(numero);
+      infoContainer.appendChild(tipoLogradouro);
+      
+
+      const mapaDiv = document.createElement("div");
+      mapaDiv.id = "map";
+      mapaDiv.style.height = "300px";
+      mapaDiv.style.marginTop = "20px";
+      div_info.innerHTML = ""; // limpa o conteúdo anterior
+      div_info.appendChild(infoContainer);
+      div_info.appendChild(mapaDiv);
+
+
+    // 2. Montar o endereço completo
+    const enderecoCompleto = `${enderecoPet.tipo_logradouro} ${enderecoPet.logradouro}, ${enderecoPet.numero}, ${enderecoPet.bairro}`;
+
+    // 3. Buscar coordenadas via Nominatim
+    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
+      .then(res => res.json())
+      .then(loc => {
+        if (loc.length === 0) {
+          mapaDiv.innerHTML = "<p>Localização não encontrada.</p>";
+          return;
+        }
+
+        const lat = parseFloat(loc[0].lat);
+        const lon = parseFloat(loc[0].lon);
+
+        // 4. Criar e exibir o mapa
+        const map = L.map('map').setView([lat, lon], 16);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        L.marker([lat, lon]).addTo(map)
+          .bindPopup("Local do pet")
+          .openPopup();
+      })
+      .catch(err => {
+        console.error("Erro ao buscar localização:", err);
+        mapaDiv.innerHTML = "<p>Erro ao carregar o mapa.</p>";
+      });
+        })
+        .catch((erro) => {
+          console.error("Erro ao carregar pet:", erro);
+        });
 }
 
