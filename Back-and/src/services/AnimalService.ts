@@ -50,8 +50,4 @@ export default class AnimalService{
             return res.status(500).json(erro)
         }
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 99e8d07ea5d911a9185c4e0b186616736f0043c4
 }

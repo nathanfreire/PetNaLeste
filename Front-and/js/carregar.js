@@ -96,9 +96,6 @@ function carregar_animal() {
       const complemento = document.createElement("p");
       complemento.innerHTML = `<strong>Complemento:</strong> ${enderecoPet.complemento}`;
 
-      const idEndereco = document.createElement("p");
-      idEndereco.innerHTML = `<strong>ID do Endereço:</strong> ${enderecoPet.id_endereco}`;
-
       const logradouro = document.createElement("p");
       logradouro.innerHTML = `<strong>Logradouro:</strong> ${enderecoPet.logradouro}`;
 
@@ -121,7 +118,6 @@ function carregar_animal() {
       div_info.appendChild(bairro);
       div_info.appendChild(cep);
       div_info.appendChild(complemento);
-      div_info.appendChild(idEndereco);
       div_info.appendChild(logradouro);
       div_info.appendChild(numero);
       div_info.appendChild(tipoLogradouro);
