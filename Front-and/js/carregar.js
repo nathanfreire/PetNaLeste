@@ -138,16 +138,16 @@ function carregar_animal() {
     const enderecoCompleto = `${enderecoPet.tipo_logradouro} ${enderecoPet.logradouro}, ${enderecoPet.numero}, ${enderecoPet.bairro}`;
 
     // 3. Buscar coordenadas via Nominatim
-    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(enderecoCompleto)}`)
+    fetch(`http://localhost:5000/api/v1/geolocalizacao?q=${encodeURIComponent(enderecoCompleto)}`)
       .then(res => res.json())
       .then(loc => {
-        if (loc.length === 0) {
-          mapaDiv.innerHTML = "<p>Localização não encontrada.</p>";
-          return;
-        }
+       if (!loc || !loc.latitude || !loc.longitude) {
+        mapaDiv.innerHTML = "<p>Localização não encontrada.</p>";
+        return;
+      }
 
-        const lat = parseFloat(loc[0].lat);
-        const lon = parseFloat(loc[0].lon);
+      const lat = loc.latitude;
+      const lon = loc.longitude;
 
         // 4. Criar e exibir o mapa
         const map = L.map('map').setView([lat, lon], 16);

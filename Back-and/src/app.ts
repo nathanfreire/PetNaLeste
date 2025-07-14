@@ -7,13 +7,14 @@ import AnimalService from "./services/AnimalService"
 import EnviarEmailController from "./controllers/EnviarEmailController"
 import RedeSocialService from './services/RedeSocialService';
 import EnderecoService from './services/EnderecoService';
-
+import GeolocalizacaoController from './controllers/GeolocalizacaoController';
 
 const app = express()
 app.use(express.json())
 app.use(cors())
 app.use("/fotos",express.static("/fotos"))
 
+const geoController = new GeolocalizacaoController();
 const usu = new UsuarioService()
 const ani = new AnimalService()
 const rede = new RedeSocialService()
@@ -54,6 +55,10 @@ app.get("/api/v1/animal/listarporid/:id",(req,res)=>{
 app.get("/api/v1/endereco/listarporid/:id",(req,res)=>{
     end.ListarEnderecoPorId(req,res);
 })
+//################ MAPA ##############################
+app.get("/api/v1/geolocalizacao", (req, res) => {
+    geoController.buscarCoordenadas(req, res);
+});
 
 // Rota enviar email
 app.post('/enviar-email', (req, res) => {enviarEmailController.handle(req, res)});
