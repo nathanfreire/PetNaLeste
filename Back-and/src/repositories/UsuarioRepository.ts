@@ -105,6 +105,41 @@ export default class UsuarioRepository implements CommandsUsuario <Usuario>{
             })
            })
     }
+
+    ListarPerfil(id:number): Promise<any[]> {
+        return new Promise((resolve,reject)=>{
+            conexao.query(`select 
+Usuario.id_Usuario,
+Usuario.nome_Usuario,
+Usuario.foto_Usuario,
+Contato.id_Contato,
+Contato.telefone_residencial,
+Contato.telefone_celular,
+RedeSociais.id_redes,
+RedeSociais.tipo_redes,
+RedeSociais.identificador,
+Animal.id_Animal,
+Animal.tipo_Animal,
+Animal.raca,
+Animal.cor,
+Animal.porte,
+Animal.sexo,
+Animal.foto_Animal,
+Animal.descricao
+
+from Usuario inner join Contato on Usuario.id_contato=Contato.id_contato 
+inner join RedeSociais on Usuario.id_redes=RedeSociais.id_redes 
+inner join Animal on Usuario.id_usuario=Animal.id_usuario 
+where Usuario.id_usuario=${id}`,(erro, result)=>{
+                if(erro){
+                    return reject(erro)
+                }
+                else{
+                    return resolve(result as any[])
+                }
+            })
+        })
+    }
     Apagar(id: number): Promise<string> {
         throw new Error("Method not implemented.");
     }

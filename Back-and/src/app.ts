@@ -31,6 +31,10 @@ app.post("/api/v1/usuario/cadastro", (req,res)=>{
 app.post("/api/v1/usuario/login", (req,res)=>{
     usu.loginUsuario(req,res)
 })
+
+app.get("/api/v1/usuario/perfil/:id", (req,res)=>{
+    usu.ListarPerfilPorId(req,res)
+})
 // ############### Animal #######################
 app.get("/api/v1/animal/listar", (req,res)=>{
     ani.listarAnimal(req,res)

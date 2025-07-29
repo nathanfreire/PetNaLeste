@@ -122,6 +122,13 @@
     padding: 25px;
     background: #fefefe;
     box-shadow: 0 4px 12px rgba(0, 180, 219, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Classe para animação fade-out */
+  .fade-out {
+    opacity: 0;
+    transform: scale(0.95);
   }
 
   .pet-form {
@@ -204,27 +211,24 @@
     background-color: #009ac3;
   }
 
-  .botao-fechar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  cursor: pointer;
-  background: #f44336;
-  color: white;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  text-align: center;
-  line-height: 36px;
-  z-index: 1000;
-  box-shadow: 0 0 6px rgba(0,0,0,0.3);
-}
-.botao-fechar:hover {
-  background: #d32f2f;
-}
+  /* Estilo para o botão Remover Pet */
+  .btn-remover {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2px;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
 
+  .btn-remover:hover {
+    background-color: #d90000;
+  }
 
   /* --- Responsivo --- */
   @media (max-width: 600px) {
@@ -312,7 +316,6 @@
 <body>
 
   <div class="container">
-    <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
     <div class="perfil-header">
       <img src="img/rafael.png" alt="Foto de Perfil" />
       <div class="perfil-header-info">
@@ -351,7 +354,8 @@
         </div>
       </div>
 
-          <div class="form-group">
+
+      <div class="form-group">
         <div>
           <label>Rede Social</label>
           <select>
@@ -374,7 +378,6 @@
       <div class="section-title">Informações do(s) Pet(s)</div>
       <div class="pet-buttons">
         <button type="button" onclick="adicionarPet()">Adicionar Pet</button>
-        <button type="button" onclick="removerPet()">Remover Pet</button>
       </div>
 
       <div id="pets-container"></div>
@@ -384,12 +387,6 @@
   </div>
 
   <script>
-
-function voltarParaHome() {
-  window.location.href = "index.html"; // Altere para a página principal correta
-}
-
-
     let petCount = 0;
     function criarPetWrapper(numero) {
       return `
@@ -425,15 +422,17 @@ function voltarParaHome() {
             <div class="form-group full-width">
               <label>Observações</label>
               <textarea name="obs_pet[]" rows="3" data-pet-input="obs" placeholder="Observações sobre o pet"></textarea>
+         
             </div>
           </div>
 
           <div class="pet-card">
             <img src="img/passaro1.jpg" alt="Imagem do Pet" />
-        
-           
           </div>
+               <button type="button" class="btn-remover" onclick="removerPet(this)">Remover Pet</button>
         </div>`;
+
+        
     }
 
     function adicionarPet() {
@@ -453,12 +452,17 @@ function voltarParaHome() {
       atualizarCard(wrapper);
     }
 
-    function removerPet() {
-      const container = document.getElementById("pets-container");
-      const pets = container.querySelectorAll('.pet-wrapper');
-      if (pets.length > 0) {
-        container.removeChild(pets[pets.length - 1]);
-        petCount--;
+    function removerPet(botao) {
+      const petWrapper = botao.closest('.pet-wrapper');
+      if (petWrapper) {
+        const confirmar = confirm("Tem certeza que deseja remover este pet?");
+        if (confirmar) {
+          petWrapper.classList.add("fade-out");
+          setTimeout(() => {
+            petWrapper.remove();
+            petCount--;
+          }, 300);
+        }
       }
     }
 
@@ -483,13 +487,24 @@ function voltarParaHome() {
         }
       });
 
-      // Atualiza texto
-      card.querySelector('h4').textContent = valores.nome !== '-' ? valores.nome : 'Nome do Pet';
-
-      const campos = ['tipo', 'raca', 'cor', 'porte', 'sexo', 'obs'];
+   
+   
       campos.forEach((campo, i) => {
-        const grupo = card.querySelectorAll('.info-value')[i];
-        if (grupo) grupo.textContent = valores[campo];
+        let grupo = card.querySelectorAll('.info-group')[i];
+        if (!grupo) {
+          // Criar se não existir
+          grupo = document.createElement('div');
+          grupo.classList.add('info-group');
+          const label = document.createElement('div');
+          label.classList.add('info-label');
+          label.textContent = campo.charAt(0).toUpperCase() + campo.slice(1) + ':';
+          const valor = document.createElement('div');
+          valor.classList.add('info-value');
+          grupo.appendChild(label);
+          grupo.appendChild(valor);
+          card.appendChild(grupo);
+        }
+        grupo.querySelector('.info-value').textContent = valores[campo];
       });
     }
 

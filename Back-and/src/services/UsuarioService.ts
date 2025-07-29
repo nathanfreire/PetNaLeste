@@ -36,6 +36,19 @@ export default class UsuarioService{
             return res.status(500).json(error)
         }
     }
+
+    async ListarPerfilPorId(req:Request, res:Response){
+        let id = req.params.id;
+        
+        try{
+            const rs = await this.usuRepository.ListarPerfil(parseInt(id));
+            return res.status(200).json(rs);
+        }
+        catch(erro){
+            return res.status(500).json(erro)
+        }
+    }
+
     async loginUsuario (req:Request, res:Response){
         let us = req.body.usuario
         let sh = req.body.senha
