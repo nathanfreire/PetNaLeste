@@ -64,7 +64,7 @@ nav {
 }
 
 .logo2 {
-    width: 100px;
+    width: 150px;
     height: auto;
 }
 
@@ -135,7 +135,7 @@ main .container {
 }
 
 .diferencias .card {
-    width: 30%;
+    width: 30% !important;
     padding: 30px;
     border-radius: 15px;
     transition: 0.3s;
@@ -480,7 +480,7 @@ footer .container a {
     }
 
     .diferencias .card {
-        width: 100%;
+        width: 100% !important;
         margin-bottom: 5px;
     }
 
@@ -548,4 +548,3 @@ footer .container a {
         font-size: 3rem;
     }
 }
-

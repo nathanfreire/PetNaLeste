@@ -1,20 +1,28 @@
-let usuario_logado = "usuario_logado"
+let usuario_logado = "usuario_logado";
 
 if (window.localStorage.getItem(usuario_logado)) {
-
-  let us = window.localStorage.getItem(usuario_logado)
-  //converter a variavel us para json
-  //console.log(us)
-  us = JSON.parse(us)
+  let us = window.localStorage.getItem(usuario_logado);
+  us = JSON.parse(us);
 
   let foto_usuario = `<img src=${us.payload.foto_usuario} class="foto_usuario">`;
   let nome_usuario = `<p class="nome_usuario"> ${us.payload.nome_usuario} </p>`;
 
+  const usuarioEl = document.getElementById("usuario");
+  usuarioEl.style.padding = "10px";
+  usuarioEl.innerHTML = foto_usuario + nome_usuario;
+  usuarioEl.removeAttribute("href");
+  usuarioEl.style.cursor = "pointer";
 
-  document.getElementById("usuario").style.padding="10px";
-
-  document.getElementById("usuario").innerHTML = foto_usuario + nome_usuario
+  // Oculta os botões após o login
+  const botoes = ["btn1", "btn2", "btn3", "btn4"];
+  botoes.forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) {
+      btn.style.display = "none";
+    }
+  });
 }
+
 
 function carregar_animal() {
 
@@ -203,3 +211,37 @@ function efetuarlogin(){
   }).catch((erro)=>console.error(erro))
 }
 
+// Evento para mostrar o menu quando clicar na foto
+document.addEventListener("click", function (e) {
+  const menu = document.getElementById("menu-usuario");
+  const usuario = document.getElementById("usuario");
+  const estaLogado = window.localStorage.getItem(usuario_logado);
+
+  if (!estaLogado) {
+    menu.style.display = "none"; // se não estiver logado, garante que o menu fique escondido
+    return;
+  }
+
+  const clicouNaFoto = e.target.closest("#usuario");
+  const clicouNoMenu = e.target.closest("#menu-usuario");
+
+  if (clicouNaFoto) {
+    // Pega posição da imagem e exibe o menu
+    const rect = usuario.getBoundingClientRect();
+    menu.style.top = rect.bottom + "px";
+    menu.style.left = rect.left + "px";
+    menu.style.display = "block";
+  } else if (!clicouNoMenu) {
+    menu.style.display = "none";
+  }
+});
+
+// Logout
+const logout = document.getElementById("logout");
+if (logout) {
+  logout.addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.removeItem(usuario_logado);
+    window.location.reload(); // Atualiza a página
+  });
+}

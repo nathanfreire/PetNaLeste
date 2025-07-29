@@ -4,6 +4,8 @@ function carregar_animal() {
 
   const div_imagens = document.querySelector(".pet-images");
   const div_info = document.querySelector(".pet-info");
+  const div_map = document.querySelector(".pet-map");
+  const div_nome = document.querySelector(".pet-nome")
 
   // Função para formatar a data
   function formatarData(dataISO) {
@@ -108,7 +110,7 @@ function carregar_animal() {
       const infoContainer = document.createElement("div");
       infoContainer.className = "dados-pet";
       
-      infoContainer.appendChild(h3);
+      div_nome.appendChild(h3);
       infoContainer.appendChild(pDescricao);
       infoContainer.appendChild(pRaca);
       infoContainer.appendChild(pCor);
@@ -131,7 +133,7 @@ function carregar_animal() {
       mapaDiv.style.marginTop = "20px";
       div_info.innerHTML = ""; // limpa o conteúdo anterior
       div_info.appendChild(infoContainer);
-      div_info.appendChild(mapaDiv);
+      div_map.appendChild(mapaDiv);
 
 
     // 2. Montar o endereço completo

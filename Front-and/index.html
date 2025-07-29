@@ -19,13 +19,10 @@
                         <img src="img/logo2.png" alt="logo" class="logo2">
                     </div>
                     <ul class="ul">
-                        <!--<li> <a href="#">Início</a> </li>
-                        <li> <a href="#">Sobre Nós</a> </li>
-                        <li> <a href="#">Contato</a> </li>-->
-                        <li> <a href="formulario.html"> <button class="btn-gradient">Perdi um Pet</button> </a></li>
-                        <li> <a href="formulario.html"> <button class="btn-gradient">Achei um Pet</button> </a></li>
-                        <li> <a href="login.html" id="usuario"> <button class="btn-gradient" >Login</button> </a></li>
-                    </ul>
+                        <li><a href="formulario.html"><button class="btn-gradient botao" id="btn1">Perdi um Pet</button></a></li>
+                        <li><a href="formulario.html"><button class="btn-gradient botao" id="btn2">Achei um Pet</button></a></li>
+                        <li><a href="login.html" id="usuario"><button class="btn-gradient">Login</button></a></li>
+                      </ul>
                     <div class="menu-icon">
                         <img src="img/menu.png" alt="icone menu">
                     </div>
@@ -43,9 +40,9 @@
                     <h1>PetNaLeste</h1>
                     <h2>Rencontre seu companheiro aqui.</h2>
                     <div>
-                        <a href="formulario.html"><button class="btn-gradient">Perdi Um Pet</button> </a>
-                        <a href="formulario.html"><button class="btn-gradient">Achei Um Pet</button> </a>
-                    </div>
+                        <a href="formulario.html"><button class="btn-gradient botao" id="btn3">Perdi Um Pet</button></a>
+                        <a href="formulario.html"><button class="btn-gradient botao" id="btn4">Achei Um Pet</button></a>
+                      </div>
                 </div>
                 <!-- fim do main text -->
                 <!-- imagem do main -->
@@ -180,6 +177,14 @@
             </ul>
         </div>
     </footer>
+
+    <div id="menu-usuario" style="display: none; position: absolute; background: white; border: 1px solid #ccc; border-radius: 5px; padding: 10px; z-index: 1000;">
+        <ul style="list-style: none; margin: 0; padding: 0;">
+          <li><a href="editar.html" style="text-decoration: none; color: #333;">Editar Perfil</a></li>
+          <li><a href="#" id="logout" style="text-decoration: none; color: #e00;">Logout</a></li>
+        </ul>
+      </div>
+
 
     <script src="js/main.js"></script>
     <script src="js/script.js"></script>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perfil - PetNaLeste</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  body {
+    font-family: 'Nunito', Arial, sans-serif;
+    background: linear-gradient(135deg, #000000, #0083b0);
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+  }
+
+  .container {
+    background: #fff;
+    margin: auto;
+    padding: 40px 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  }
+
+  .perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .perfil-header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00b4db;
+    box-shadow: 0 4px 10px rgba(0, 180, 219, 0.4);
+  }
+
+  .perfil-header-info h2 {
+    font-size: 2rem;
+    margin: 0;
+    color: #004d66;
+  }
+
+  .form-group,
+  .telefone-group,
+  .usuario-senha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+
+  .form-group > div,
+  .telefone-group > div {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-weight: 700;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: #004d66;
+  }
+
+  input,
+  select,
+  textarea {
+    padding: 14px;
+    border: 1.5px solid #00b4db;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #006f9a;
+    outline: none;
+  }
+
+  .btn-principal {
+    background: #00b4db;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .btn-principal:hover {
+    background: #009ac3;
+  }
+
+  .pet-wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    border: 2px solid #00b4db;
+    border-radius: 12px;
+    padding: 25px;
+    background: #fefefe;
+    box-shadow: 0 4px 12px rgba(0, 180, 219, 0.2);
+  }
+
+  .pet-form {
+    flex: 1 1 45%;
+  }
+
+  .pet-form h3 {
+    margin-top: 0;
+    color: #0079a1;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #00b4db;
+    padding-bottom: 6px;
+  }
+
+  .pet-card {
+    flex: 1 1 45%;
+    background: #e6f7ff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: inset 0 0 8px rgba(0, 180, 219, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pet-card img {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    box-shadow: 0 2px 10px rgba(0, 180, 219, 0.3);
+  }
+
+  .pet-card h4 {
+    margin: 0 0 12px 0;
+    font-size: 1.6rem;
+    color: #004d66;
+  }
+
+  .info-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .info-label {
+    font-weight: 700;
+    color: #0079a1;
+  }
+
+  .info-value {
+    color: #004d66;
+    font-style: italic;
+  }
+
+  .pet-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .pet-buttons button {
+    background-color: #00b4db;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex: 1;
+  }
+
+  .pet-buttons button:hover {
+    background-color: #009ac3;
+  }
+
+  .botao-fechar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #f44336;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  z-index: 1000;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+.botao-fechar:hover {
+  background: #d32f2f;
+}
+
+
+  /* --- Responsivo --- */
+  @media (max-width: 600px) {
+    body {
+      font-size: 18px;
+      padding: 15px;
+    }
+
+    .container {
+      padding: 25px 15px;
+      border-radius: 0;
+      box-shadow: none;
+      width: 100%;
+    }
+
+    .perfil-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .perfil-header img {
+      width: 120px;
+      height: 120px;
+    }
+
+    .perfil-header-info h2 {
+      font-size: 1.7rem;
+    }
+
+    .form-group,
+    .telefone-group,
+    .usuario-senha {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-group > div,
+    .telefone-group > div {
+      flex: 1 1 100%;
+    }
+
+    label {
+      font-size: 17px;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 16px;
+      padding: 12px;
+    }
+
+    .pet-wrapper {
+      flex-direction: column;
+      padding: 15px;
+      border: none;
+      box-shadow: none;
+      margin-top: 20px;
+    }
+
+    .pet-form,
+    .pet-card {
+      flex: none;
+      width: 100%;
+      padding: 15px;
+    }
+
+    .pet-card img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .pet-buttons {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-principal {
+      font-size: 1.2rem;
+      padding: 14px;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
+    <div class="perfil-header">
+      <img src="img/rafael.png" alt="Foto de Perfil" />
+      <div class="perfil-header-info">
+        <h2>Nome do Usuário</h2>
+      </div>
+    </div>
+
+    <form id="formPerfil">
+      <div class="section-title">Informações do Usuário</div>
+      <div class="form-group usuario-senha">
+        <div>
+          <label>Nome do Usuário</label>
+          <input type="text" placeholder="Digite seu nome" />
+        </div>
+        <div>
+          <label>Senha</label>
+          <input type="password" placeholder="Digite sua senha" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>Foto(s) do usuário</label>
+          <input type="file" accept="image/*" multiple />
+        </div>
+      </div>
+
+      <div class="telefone-group">
+        <div>
+          <label>Telefone Residencial</label>
+          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" />
+        </div>
+        <div>
+          <label>Telefone Celular</label>
+          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" />
+        </div>
+      </div>
+
+          <div class="form-group">
+        <div>
+          <label>Rede Social</label>
+          <select>
+            <option value="">Selecione a rede social</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>WhatsApp</option>
+            <option>Outro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <label>Identificador da Rede Social</label>
+          <input type="text" placeholder="Digite seu usuário, link ou número" />
+        </div>
+      </div>
+
+      <div class="section-title">Informações do(s) Pet(s)</div>
+      <div class="pet-buttons">
+        <button type="button" onclick="adicionarPet()">Adicionar Pet</button>
+        <button type="button" onclick="removerPet()">Remover Pet</button>
+      </div>
+
+      <div id="pets-container"></div>
+
+      <button type="submit" class="btn-principal">Salvar</button>
+    </form>
+  </div>
+
+  <script>
+
+function voltarParaHome() {
+  window.location.href = "index.html"; // Altere para a página principal correta
+}
+
+
+    let petCount = 0;
+    function criarPetWrapper(numero) {
+      return `
+        <div class="pet-wrapper" data-pet-id="${numero}">
+          <div class="pet-form">
+            <h3>Pet ${numero}</h3>
+            <div class="form-group">
+              <div><label>Tipo de Animal</label><input type="text" name="tipo_animal[]" data-pet-input="tipo" placeholder="Ex: Cachorro" /></div>
+              <div><label>Nome</label><input type="text" name="nome_pet[]" data-pet-input="nome" placeholder="Nome do pet" /></div>
+            </div>
+
+            <div class="form-group">
+              <div><label>Raça</label><input type="text" name="raca_pet[]" data-pet-input="raca" placeholder="Raça do pet" /></div>
+              <div><label>Cor</label><input type="text" name="cor_pet[]" data-pet-input="cor" placeholder="Cor do pet" /></div>
+            </div>
+
+            <div class="form-group">
+              <div><label>Porte</label><select name="porte_pet[]" data-pet-input="porte">
+                <option value="">Selecione</option><option value="Pequeno">Pequeno</option><option value="Médio">Médio</option><option value="Grande">Grande</option>
+              </select></div>
+              <div><label>Sexo</label><select name="sexo_pet[]" data-pet-input="sexo">
+                <option value="">Selecione</option><option value="Macho">Macho</option><option value="Fêmea">Fêmea</option>
+              </select></div>
+            </div>
+
+            <div class="form-group">
+              <div>
+                <label>Imagem do Pet</label>
+                <input type="file" accept="image/*" data-pet-input="imagem" />
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label>Observações</label>
+              <textarea name="obs_pet[]" rows="3" data-pet-input="obs" placeholder="Observações sobre o pet"></textarea>
+            </div>
+          </div>
+
+          <div class="pet-card">
+            <img src="img/passaro1.jpg" alt="Imagem do Pet" />
+        
+           
+          </div>
+        </div>`;
+    }
+
+    function adicionarPet() {
+      petCount++;
+      const container = document.getElementById("pets-container");
+      container.insertAdjacentHTML('beforeend', criarPetWrapper(petCount));
+      const wrapper = container.querySelector(`[data-pet-id="${petCount}"]`);
+      const inputs = wrapper.querySelectorAll('[data-pet-input]');
+      inputs.forEach(input => {
+        if(input.type === 'file'){
+          input.addEventListener('change', () => atualizarCard(wrapper));
+        } else {
+          input.addEventListener('input', () => atualizarCard(wrapper));
+          input.addEventListener('change', () => atualizarCard(wrapper));
+        }
+      });
+      atualizarCard(wrapper);
+    }
+
+    function removerPet() {
+      const container = document.getElementById("pets-container");
+      const pets = container.querySelectorAll('.pet-wrapper');
+      if (pets.length > 0) {
+        container.removeChild(pets[pets.length - 1]);
+        petCount--;
+      }
+    }
+
+    function atualizarCard(wrapper) {
+      const card = wrapper.querySelector('.pet-card');
+      const inputs = wrapper.querySelectorAll('[data-pet-input]');
+      const valores = {};
+      inputs.forEach(input => {
+        if(input.type === 'file'){
+          const file = input.files[0];
+          if(file){
+            const reader = new FileReader();
+            reader.onload = e => {
+              card.querySelector('img').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+          } else {
+            card.querySelector('img').src = 'img/passaro1.jpg'; // imagem padrão
+          }
+        } else {
+          valores[input.dataset.petInput] = input.value.trim() || '-';
+        }
+      });
+
+      // Atualiza texto
+      card.querySelector('h4').textContent = valores.nome !== '-' ? valores.nome : 'Nome do Pet';
+
+      const campos = ['tipo', 'raca', 'cor', 'porte', 'sexo', 'obs'];
+      campos.forEach((campo, i) => {
+        const grupo = card.querySelectorAll('.info-value')[i];
+        if (grupo) grupo.textContent = valores[campo];
+      });
+    }
+
+    window.onload = () => adicionarPet();
+  </script>
+
+</body>
+</html>
