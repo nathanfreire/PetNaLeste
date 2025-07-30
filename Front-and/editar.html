@@ -230,6 +230,28 @@
     background-color: #d90000;
   }
 
+
+  .botao-fechar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #f44336;
+  color: white;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  z-index: 1000;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+.botao-fechar:hover {
+  background: #d32f2f;
+}
+
   /* --- Responsivo --- */
   @media (max-width: 600px) {
     body {
@@ -316,6 +338,7 @@
 <body>
 
   <div class="container">
+    <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
     <div class="perfil-header">
       <img src="img/rafael.png" alt="Foto de Perfil" />
       <div class="perfil-header-info">
@@ -387,6 +410,10 @@
   </div>
 
   <script>
+function voltarParaHome() {
+  window.location.href = "index.html"; // Altere para a página principal correta
+}
+
     let petCount = 0;
     function criarPetWrapper(numero) {
       return `
