@@ -1,27 +1,11 @@
 function carregar_perfil() {
     let id_carregarUser = window.location.search.split('=')[1];
       console.log("ID do pet:", id_carregarUser);
-}
 
-function carregar_animal() {
-  let idpet = window.location.search.split('=')[1];
-  console.log("ID do pet:", idpet);
 
-  const div_imagens = document.querySelector(".pet-images");
-  const div_info = document.querySelector(".pet-info");
-  const div_map = document.querySelector(".pet-map");
+
+
   const div_nome = document.querySelector(".pet-nome")
-
-
-
-
-
-  // Função para formatar a data
-  function formatarData(dataISO) {
-    if (!dataISO) return '';
-    const data = new Date(dataISO);
-    return data.toLocaleDateString('pt-BR');
-  }
 
 
 
@@ -59,114 +43,44 @@ function carregar_animal() {
       const pPorte = document.createElement("p");
       pPorte.innerHTML = `<strong>Porte:</strong> ${Perfil.porte}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pSexo = document.createElement("p");
+      pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pId_usuario = document.createElement("p");
+      pId_usuario.innerHTML = `<strong>Id_usuario:</strong> ${Perfil.id_usuario}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pNome_usuario = document.createElement("p");
+      pNome_usuario.innerHTML = `<strong>Nome_usuario:</strong> ${Perfil.nome_usuario}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pFoto_usuario = document.createElement("p");
+      pFoto_usuario.innerHTML = `<strong>Foto_usuario:</strong> ${Perfil.foto_usuario}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pId_contato = document.createElement("p");
+      pId_contato.innerHTML = `<strong>Id_contato:</strong> ${Perfil.id_contato}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pTelefone_residencial = document.createElement("p");
+      pTelefone_residencial.innerHTML = `<strong>Telefone_residencial:</strong> ${Perfil.telefone_residencial}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pTelefone_comercial = document.createElement("p");
+      pTelefone_comercial.innerHTML = `<strong>Telefone_comercial:</strong> ${Perfil.telefone_comercial}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pId_redes = document.createElement("p");
+      pId_redes.innerHTML = `<strong>Id_redes:</strong> ${Perfil.id_redes}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pTipo_redes = document.createElement("p");
+      pTipo_redes.innerHTML = `<strong>Tipo_redes:</strong> ${Perfil.tipo_redes}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pIdentificador = document.createElement("p");
+      pIdentificador.innerHTML = `<strong>Identificador:</strong> ${Perfil.identificador}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pId_animal = document.createElement("p");
+      pId_animal.innerHTML = `<strong>Id_animal:</strong> ${Perfil.id_animal}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
+      const pTipo_aniaml = document.createElement("p");
+      pTipo_aniaml.innerHTML = `<strong>Tipo_aniaml:</strong> ${Perfil.tipo_aniaml}`;
 
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
-      // const pSexo = document.createElement("p");
-      // pSexo.innerHTML = `<strong>Sexo:</strong> ${Perfil.sexo}`;
-
+      const pFoto_animal = document.createElement("p");
+      pFoto_animal.innerHTML = `<strong>Foto_animal:</strong> ${Perfil.foto_animal}`;
 
       
       const infoContainer = document.createElement("div");
@@ -178,34 +92,18 @@ function carregar_animal() {
       infoContainer.appendChild(pCor);
       infoContainer.appendChild(pPorte);
       infoContainer.appendChild(pSexo);
-     
-    
+      infoContainer.appendChild(pId_usuario);
+      infoContainer.appendChild(pNome_usuario);
+      infoContainer.appendChild(pFoto_usuario);
+      infoContainer.appendChild(pId_contato);
+      infoContainer.appendChild(pTelefone_residencial);
+      infoContainer.appendChild(pTelefone_comercial);
+      infoContainer.appendChild(pId_redes);
+      infoContainer.appendChild(pTipo_redes);
+      infoContainer.appendChild(pIdentificador);
+      infoContainer.appendChild(pId_animal);
+      infoContainer.appendChild(pTipo_aniaml);
+      infoContainer.appendChild(pFoto_animal);
 
       });
 }
-
-
-usuario: 
-id_usuario
-nome_usuario
-foto_usuario
-
-contato:
-id_contato
-telefone_residencial
-telefone_celular
-
-redes:
-id_redes
-tipo_redes
-identificador
-
-animal:
-id_animal
-tipo_animal
-raca
-cor
-porte
-sexo
-foto_animal
-descricao
