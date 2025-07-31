@@ -335,7 +335,7 @@
   }
   </style>
 </head>
-<body>
+<body onload="carregar_perfil()">
 
   <div class="container">
     <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
@@ -351,7 +351,7 @@
       <div class="form-group usuario-senha">
         <div>
           <label>Nome do Usuário</label>
-          <input type="text" placeholder="Digite seu nome" />
+          <input type="text" placeholder="Digite seu nome" id="txtNomeUsuario" />
         </div>
         <div>
           <label>Senha</label>
@@ -369,11 +369,11 @@
       <div class="telefone-group">
         <div>
           <label>Telefone Residencial</label>
-          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" />
+          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" id="txtTelefoneResiUsuario"/>
         </div>
         <div>
           <label>Telefone Celular</label>
-          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" />
+          <input type="tel" placeholder="(XX) XXXXX-XXX" class="telefone-input" id="txtTelefoneCeluUsuario"/>
         </div>
       </div>
 
@@ -381,20 +381,21 @@
       <div class="form-group">
         <div>
           <label>Rede Social</label>
-          <select>
+          <input type="text" id="txtRedeSociais">
+          <!--<select>
             <option value="">Selecione a rede social</option>
             <option>Facebook</option>
             <option>Instagram</option>
             <option>WhatsApp</option>
             <option>Outro</option>
-          </select>
+          </select>-->
         </div>
       </div>
 
       <div class="form-group">
         <div>
           <label>Identificador da Rede Social</label>
-          <input type="text" placeholder="Digite seu usuário, link ou número" />
+          <input type="text" placeholder="Digite seu usuário, link ou número" id="txtIdentificador"/>
         </div>
       </div>
 
@@ -421,13 +422,13 @@ function voltarParaHome() {
           <div class="pet-form">
             <h3>Pet ${numero}</h3>
             <div class="form-group">
-              <div><label>Tipo de Animal</label><input type="text" name="tipo_animal[]" data-pet-input="tipo" placeholder="Ex: Cachorro" /></div>
-              <div><label>Nome</label><input type="text" name="nome_pet[]" data-pet-input="nome" placeholder="Nome do pet" /></div>
+              <div><label>Tipo de Animal</label><input type="text" name="tipo_animal[]" data-pet-input="tipo" placeholder="Ex: Cachorro" id="txttipo"/></div>
+              <div><label>Nome</label><input type="text" name="nome_pet[]" data-pet-input="nome" placeholder="Nome do pet" id="txtnomepet"/></div>
             </div>
 
             <div class="form-group">
-              <div><label>Raça</label><input type="text" name="raca_pet[]" data-pet-input="raca" placeholder="Raça do pet" /></div>
-              <div><label>Cor</label><input type="text" name="cor_pet[]" data-pet-input="cor" placeholder="Cor do pet" /></div>
+              <div><label>Raça</label><input type="text" name="raca_pet[]" data-pet-input="raca" placeholder="Raça do pet" id="txtraca"/></div>
+              <div><label>Cor</label><input type="text" name="cor_pet[]" data-pet-input="cor" placeholder="Cor do pet" id="txtcor"/></div>
             </div>
 
             <div class="form-group">
@@ -439,22 +440,17 @@ function voltarParaHome() {
               </select></div>
             </div>
 
-            <div class="form-group">
-              <div>
-                <label>Imagem do Pet</label>
-                <input type="file" accept="image/*" data-pet-input="imagem" />
-              </div>
-            </div>
-
             <div class="form-group full-width">
               <label>Observações</label>
-              <textarea name="obs_pet[]" rows="3" data-pet-input="obs" placeholder="Observações sobre o pet"></textarea>
+              <textarea name="obs_pet[]" rows="3" data-pet-input="obs" placeholder="Observações sobre o pet" id="txtdescricao"></textarea>
          
             </div>
           </div>
 
           <div class="pet-card">
+            <label>Imagem do Pet</label>
             <img src="img/passaro1.jpg" alt="Imagem do Pet" />
+            <input type="file" accept="image/*" data-pet-input="imagem" id="txtimagempet"/>
           </div>
                <button type="button" class="btn-remover" onclick="removerPet(this)">Remover Pet</button>
         </div>`;
@@ -477,6 +473,7 @@ function voltarParaHome() {
         }
       });
       atualizarCard(wrapper);
+      carregar_perfil()
     }
 
     function removerPet(botao) {
@@ -514,7 +511,7 @@ function voltarParaHome() {
         }
       });
 
-   
+    }
    
       campos.forEach((campo, i) => {
         let grupo = card.querySelectorAll('.info-group')[i];
@@ -533,10 +530,11 @@ function voltarParaHome() {
         }
         grupo.querySelector('.info-value').textContent = valores[campo];
       });
-    }
+    
 
-    window.onload = () => adicionarPet();
+     window.onload = () => adicionarPet();
   </script>
+  <script src="js/carregarUsuario.js"></script>
 
 </body>
 </html>

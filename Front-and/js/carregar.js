@@ -80,6 +80,9 @@ function carregar_animal() {
       const pSexo = document.createElement("p");
       pSexo.innerHTML = `<strong>Sexo:</strong> ${pet.sexo}`;
 
+      const pNome = document.createElement("p");
+      pSexo.innerHTML = `<strong>Sexo:</strong> ${pet.nome}`;
+
       const pEncontrado = document.createElement("p");
       pEncontrado.innerHTML = `<strong>Encontrado em:</strong> ${formatarData(pet.data_encontrado)}`;
 
@@ -125,6 +128,7 @@ function carregar_animal() {
       infoContainer.appendChild(logradouro);
       infoContainer.appendChild(numero);
       infoContainer.appendChild(tipoLogradouro);
+      infoContainer.appendChild(pNome);
       
 
       const mapaDiv = document.createElement("div");
