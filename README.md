@@ -248,5 +248,7 @@ ALTER TABLE `Animal`
   ---
 
   ### "Imagem do Grupo"
-![](Front-and/img/)
+![](Front-and/img/img_grupo.jpg)
+
+
 
