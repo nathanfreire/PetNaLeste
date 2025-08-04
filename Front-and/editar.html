@@ -341,12 +341,14 @@
     <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
     <div class="perfil-header">
       <img src="img/rafael.png" alt="Foto de Perfil" />
+      <label>Foto(s) do usuário</label>
+      <input type="file" accept="image/*" id="inputFotoUsuario" />
       <div class="perfil-header-info">
-        <h2>Nome do Usuário</h2>
+      
       </div>
     </div>
 
-    <form id="formPerfil">
+    <form id="formPerfil" onsubmit="return false">
       <div class="section-title">Informações do Usuário</div>
       <div class="form-group usuario-senha">
         <div>
@@ -356,13 +358,6 @@
         <div>
           <label>Senha</label>
           <input type="password" placeholder="Digite sua senha" />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div>
-          <label>Foto(s) do usuário</label>
-          <input type="file" accept="image/*" multiple />
         </div>
       </div>
 
@@ -406,7 +401,7 @@
 
       <div id="pets-container"></div>
 
-      <button type="submit" class="btn-principal">Salvar</button>
+      <button type="submit" class="btn-principal" onclick="atualizarPerfil()">Salvar</button>
     </form>
   </div>
 
@@ -439,6 +434,8 @@ function voltarParaHome() {
                 <option value="">Selecione</option><option value="Macho">Macho</option><option value="Fêmea">Fêmea</option>
               </select></div>
             </div>
+            
+            
 
             <div class="form-group full-width">
               <label>Observações</label>
@@ -476,6 +473,23 @@ function voltarParaHome() {
       carregar_perfil()
     }
 
+    document.addEventListener("DOMContentLoaded", () => {
+  const inputFoto = document.getElementById("inputFotoUsuario");
+  const imgPerfil = document.querySelector(".perfil-header img");
+
+  inputFoto.addEventListener("change", function () {
+    const file = inputFoto.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        imgPerfil.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+});
+
+
     function removerPet(botao) {
       const petWrapper = botao.closest('.pet-wrapper');
       if (petWrapper) {
@@ -510,6 +524,11 @@ function voltarParaHome() {
           valores[input.dataset.petInput] = input.value.trim() || '-';
         }
       });
+
+    }
+
+    function atualizarPerfil() {
+      
 
     }
    

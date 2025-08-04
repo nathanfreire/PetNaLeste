@@ -189,15 +189,17 @@ ALTER TABLE `Animal`
 ### "Diagrama do Banco de dados"
 ![](Front-and/img/Diagrama-Banco.png)
 ### "Home do site"
-![](src/public/img/.png)
+![](Front-and/img/img_home.png)
+### "Encontre seu Pet"
+![](Front-and/img/img_encontreSeuPet.png)
 ### ""
 ![](src/public/img/.png)
-### ""
-![](src/public/img/.png)
-### ""
-![](src/public/img/.png)
-### ""
-![](src/public/img/.png)
+### "Login"
+![](Front-and/img/img_login.png)
+### "Perfil"
+![](Front-and/img/img_perfil.png)
+### "Ajuda"
+![](Front-and/img/img_ajuda.png)
 
 ![GitHub License](https://img.shields.io/github/license/nathanfreire/PetNaLeste)
 
