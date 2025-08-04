@@ -247,3 +247,6 @@ ALTER TABLE `Animal`
 
   ---
 
+  ### "Imagem do Grupo"
+![](Front-and/img/)
+
