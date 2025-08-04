@@ -40,7 +40,7 @@ console.log(idUsuario)
       txtcor.value = dt[0].cor;
       txtdescricao.value = dt[0].descricao;
       txtimagempet.src = dt[0].foto_Animal;
-      document.getElementById("Porte").value = "dt[0].porte";
+
   
 
       });
