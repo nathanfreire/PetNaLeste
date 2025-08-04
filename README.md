@@ -191,13 +191,17 @@ ALTER TABLE `Animal`
 ### "Home do site"
 ![](Front-and/img/img_home.png)
 ### "Encontre seu Pet"
-![](Front-and/img/img_encontreSeuPet.png)
-### ""
-![](src/public/img/.png)
+![](Front-and/img/img_encont.png)
+### "Todos os Pets"
+![](Front-and/img/img_todos_pets.png)
+### "Detalhe do Pet"
+![](Front-and/img/img_detalhes_pet.png)
 ### "Login"
 ![](Front-and/img/img_login.png)
-### "Perfil"
-![](Front-and/img/img_perfil.png)
+### "Perfil-1"
+![](Front-and/img/img_perfil1.png)
+### "Perfil-2"
+![](Front-and/img/img_perfil2.png)
 ### "Ajuda"
 ![](Front-and/img/img_ajuda.png)
 
@@ -239,7 +243,7 @@ ALTER TABLE `Animal`
 
 ## Status do Projeto
 
-- Em Desenvolvimento.
+- Sendo Finalizado.
 
   ---
 
