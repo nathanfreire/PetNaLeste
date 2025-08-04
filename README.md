@@ -179,15 +179,16 @@ ALTER TABLE `Animal`
 - Home
 - Perdi um Pet
 - Achei um Pet
-- Como Funciona
-- Login/Cadastrar-se
+- Login
+- Encontre seu Pet
+- Fale Conosco
 - Contato
 
 ---
 
 ### "Diagrama do Banco de dados"
 ![](Front-and/img/Diagrama-Banco.png)
-### ""
+### "Home do site"
 ![](src/public/img/.png)
 ### ""
 ![](src/public/img/.png)
