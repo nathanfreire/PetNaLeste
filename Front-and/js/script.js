@@ -2,6 +2,7 @@ let usuario_logado = "usuario_logado";
 
 if (window.localStorage.getItem(usuario_logado)) {
   let us = window.localStorage.getItem(usuario_logado);
+  
   us = JSON.parse(us);
 
   let foto_usuario = `<img src=${us.payload.foto_usuario} class="foto_usuario">`;

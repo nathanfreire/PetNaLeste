@@ -340,7 +340,7 @@
   <div class="container">
     <div class="botao-fechar" onclick="voltarParaHome()">&#10005;</div>
     <div class="perfil-header">
-      <img src="img/rafael.png" alt="Foto de Perfil" />
+      <img src="img/rafael.png" alt="Foto de Perfil" id="FotoUsuariotxt" />
       <label>Foto(s) do usuário</label>
       <input type="file" accept="image/*" id="inputFotoUsuario" />
       <div class="perfil-header-info">
@@ -355,10 +355,10 @@
           <label>Nome do Usuário</label>
           <input type="text" placeholder="Digite seu nome" id="txtNomeUsuario" />
         </div>
-        <div>
+        <!-- <div>
           <label>Senha</label>
           <input type="password" placeholder="Digite sua senha" />
-        </div>
+        </div> -->
       </div>
 
       <div class="telefone-group">
@@ -446,7 +446,7 @@ function voltarParaHome() {
 
           <div class="pet-card">
             <label>Imagem do Pet</label>
-            <img src="img/passaro1.jpg" alt="Imagem do Pet" />
+            <img src="img/passaro1.jpg" alt="Imagem do Pet" id="FotoPet" />
             <input type="file" accept="image/*" data-pet-input="imagem" id="txtimagempet"/>
           </div>
                <button type="button" class="btn-remover" onclick="removerPet(this)">Remover Pet</button>
