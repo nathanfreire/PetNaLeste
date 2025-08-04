@@ -17,6 +17,7 @@ console.log(idUsuario)
   let txtcor = document.getElementById("txtcor");
   let txtdescricao = document.getElementById("txtdescricao");
   let txtimagempet = document.getElementById("FotoPet");
+  
 
  
 
@@ -31,15 +32,15 @@ console.log(idUsuario)
       txtNomeUsuario.value = dt[0].nome_Usuario;
       txtTelefoneResiUsuario.value = dt[0].telefone_residencial;
       txtTelefoneCeluUsuario.value = dt[0].telefone_celular;
-      txtRedeSociais.value = dt[0].tipo_redes;
-      txtIdentificador.value = dt[0].identificador;
+     // txtRedeSociais.value = dt[0].tipo_redes;
+     // txtIdentificador.value = dt[0].identificador;
       txttipo.value = dt[0].tipo_Animal;
       txtnomepet.value = dt[0].nome;
       txtraca.value = dt[0].raca;
       txtcor.value = dt[0].cor;
       txtdescricao.value = dt[0].descricao;
       txtimagempet.src = dt[0].foto_Animal;
-
+      document.getElementById("Porte").value = "dt[0].porte";
   
 
       });
